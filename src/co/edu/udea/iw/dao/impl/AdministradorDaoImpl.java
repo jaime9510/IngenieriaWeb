@@ -14,15 +14,15 @@ import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.exception.MyException;
 
 /**
- * Clase en la que se implementan los métodos definidos en la interface
+ * Clase en la que se implementan los mï¿½todos definidos en la interface
  * AdministradorDao y se extiende de la clase HibernateDaoSupport que es la que
- * permite la integración entre los frameworks de Hibernate y Spring, en esta
- * clase se realizarán las consultas, inserciones, borrados y actualizaciones de
+ * permite la integraciï¿½n entre los frameworks de Hibernate y Spring, en esta
+ * clase se realizarï¿½n las consultas, inserciones, borrados y actualizaciones de
  * los datos de un Administrador en la BD
  * 
  * @author Carolina Isaza
- * @author Jaime Londoño
- * @author Sebastián Jiménez
+ * @author Jaime Londoï¿½o
+ * @author Sebastiï¿½n Jimï¿½nez
  *
  */
 public class AdministradorDaoImpl extends HibernateDaoSupport implements AdministradorDao {
@@ -31,7 +31,7 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 	public List<Administrador> mostrarTodos() throws MyException {
 		// Crea la lista de administradores del tipo ArrayList 
 		List<Administrador> administradores = new ArrayList<Administrador>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -40,15 +40,15 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 			// en base a la clase Administrador
 			Criteria criteria = session.createCriteria(Administrador.class);
 			// se almacena en la lista de administradores la lista devuelta por
-			// la consulta realizada en la línea anterior
+			// la consulta realizada en la lï¿½nea anterior
 			administradores = criteria.list();
 		} catch (HibernateException e) {
-			// Si se presenta un fallo en la conexión a la base de datos o a la
-			// consulta se lanza una excepción propia (MyException) con el
+			// Si se presenta un fallo en la conexiï¿½n a la base de datos o a la
+			// consulta se lanza una excepciï¿½n propia (MyException) con el
 			// mensaje de error correspondiente
 			throw new MyException(e);
 		} finally {
-			// Se cierra la sesión
+			// Se cierra la sesiï¿½n
 			// session.close();
 		}
 		// Retorna la lista con los administradores encontrados en la base de
@@ -58,7 +58,7 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 
 	@Override
 	public void crear(Administrador admin) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -67,20 +67,27 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 			// lo anterior con el fin de comenzar operaciones en la base de
 			// datos
 			Transaction tx = session.beginTransaction();
-			// Se envía al método de guardar, correspondiente a session, el
-			// Objeto Administrador que se almacenará como nuevo registro en la
+			// Se envï¿½a al mï¿½todo de guardar, correspondiente a session, el
+			// Objeto Administrador que se almacenarï¿½ como nuevo registro en la
 			// BD
 			session.save(admin);
 			// Se realiza el commit en la base de datos para que persistan los
 			// objetos
 			tx.commit();
 		} catch (HibernateException e) {
-			// Si se presenta un fallo en la conexión a la base de datos o en la
-			// creación de filas en la BD se lanza una excepción propia
+			// Si se presenta un fallo en la conexiï¿½n a la base de datos o en la
+			// creaciï¿½n de filas en la BD se lanza una excepciï¿½n propia
 			// (MyException) con el mensaje de error correspondiente
 			throw new MyException(e);
 		} finally {
-			// Se cierra la Sesión
+			if(session!=null) {
+				try {
+					session.close();
+				} catch(HibernateException e) {
+					throw new MyException(e);
+				}
+			}
+			// Se cierra la Sesiï¿½n
 			// session.close();
 		}
 
@@ -88,7 +95,7 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 
 	@Override
 	public void actualizar(Administrador admin) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -97,19 +104,19 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 			// lo anterior con el fin de comenzar operaciones en la base de
 			// datos
 			Transaction tx = session.beginTransaction();
-			// Se envía al método de actualizar, correspondiente a session, el
-			// Objeto Administrador al que se le actualizarán los datos
+			// Se envï¿½a al mï¿½todo de actualizar, correspondiente a session, el
+			// Objeto Administrador al que se le actualizarï¿½n los datos
 			session.update(admin);
 			// Se realiza el commit en la base de datos para que persistan los
 			// objetos
 			tx.commit();
 		} catch (HibernateException e) {
-			// Si se presenta un fallo en la conexión a la base de datos o en la
-			// actualización de la BD se lanza una excepción propia
+			// Si se presenta un fallo en la conexiï¿½n a la base de datos o en la
+			// actualizaciï¿½n de la BD se lanza una excepciï¿½n propia
 			// (MyException) con el mensaje de error correspondiente
 			throw new MyException(e);
 		} finally {
-			// Se cierra la sesión
+			// Se cierra la sesiï¿½n
 			// session.close();
 		}
 
@@ -117,7 +124,7 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 
 	@Override
 	public void eliminar(Administrador admin) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -126,19 +133,19 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 			// lo anterior con el fin de comenzar operaciones en la base de
 			// datos
 			Transaction tx = session.beginTransaction();
-			// Se realiza un borrado físico de la BD del administrador enviado
-			// como parámetro
+			// Se realiza un borrado fï¿½sico de la BD del administrador enviado
+			// como parï¿½metro
 			session.delete(admin);
 			// Se realiza el commit en la base de datos para que persistan los
 			// objetos
 			tx.commit();
 		} catch (HibernateException e) {
-			// Si se presenta un fallo en la conexión a la base de datos o en la
-			// eliminación de la BD se lanza una excepción propia
+			// Si se presenta un fallo en la conexiï¿½n a la base de datos o en la
+			// eliminaciï¿½n de la BD se lanza una excepciï¿½n propia
 			// (MyException) con el mensaje de error correspondiente
 			throw new MyException(e);
 		} finally {
-			// Se cierra la sesión
+			// Se cierra la sesiï¿½n
 			// session.close();
 		}
 
@@ -148,28 +155,28 @@ public class AdministradorDaoImpl extends HibernateDaoSupport implements Adminis
 	public Administrador consultarUno(String email) throws MyException {
 		// Se crea un objeto del tipo Administrador
 		Administrador administrador;
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
 			session = getSession();
 			// Se crea un objeto Criteria en la que se especifica una consulta
-			// en base a la clase Administrador y se añade una restricción para
-			// que se realice la búsqueda por el campo de email
+			// en base a la clase Administrador y se aï¿½ade una restricciï¿½n para
+			// que se realice la bï¿½squeda por el campo de email
 			Criteria criteria = session.createCriteria(Administrador.class).add(Restrictions.eq("email", email));
-			// Se almacena en el objeto administrador el resultado único de la
-			// búsqueda realizada
+			// Se almacena en el objeto administrador el resultado ï¿½nico de la
+			// bï¿½squeda realizada
 			administrador = (Administrador) criteria.uniqueResult();
 		} catch (HibernateException e) {
-			// Si se presenta un fallo en la conexión a la base de datos o en la
-			// consulta de la BD se lanza una excepción propia
+			// Si se presenta un fallo en la conexiï¿½n a la base de datos o en la
+			// consulta de la BD se lanza una excepciï¿½n propia
 			// (MyException) con el mensaje de error correspondiente
 			throw new MyException(e);
 		} finally {
-			// Se cierra la sesión
+			// Se cierra la sesiï¿½n
 			// session.close();
 		}
-		//Retorna el administrador resultante de la búsqueda, si no existe retorna nulo
+		//Retorna el administrador resultante de la bï¿½squeda, si no existe retorna nulo
 		return administrador;
 	}
 
