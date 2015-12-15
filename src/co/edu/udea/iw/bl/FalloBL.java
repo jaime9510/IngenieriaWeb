@@ -16,6 +16,6 @@ public interface FalloBL {
 
 	public List<Fallo> consultarFalloPorDispositivo(String referenciaDispositivo) throws MyException;
 
-	public List<Fallo> consultarDañosSinSolucion() throws MyException;
+	public List<Fallo> consultarDanosSinSolucion() throws MyException;
 
 }

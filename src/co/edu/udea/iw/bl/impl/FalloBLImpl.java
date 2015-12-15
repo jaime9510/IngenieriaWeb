@@ -87,7 +87,7 @@ public class FalloBLImpl implements FalloBL{
 	}
 
 	@Override
-	public List<Fallo> consultarDañosSinSolucion() throws MyException {
+	public List<Fallo> consultarDanosSinSolucion() throws MyException {
 		List <Fallo>fallos = new ArrayList<Fallo>();
 		fallos = falloDao.consultarDañosSinSolucion();
 		return fallos;
