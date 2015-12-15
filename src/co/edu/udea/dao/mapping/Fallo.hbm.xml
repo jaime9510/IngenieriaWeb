@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-dic-2015 11:05:06 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.edu.udea.iw.dto.Fallo" table="FALLO">
+        <id name="idFallo" type="int">
+            <column name="IDFALLO" />
+            <generator class="assigned" />
+        </id>
+        <property name="error" type="java.lang.String">
+            <column name="ERROR" length="120" not-null="true" />
+        </property>
+        <property name="fechaDeteccion" type="java.util.Date">
+            <column name="FECHADETECCION" not-null="true"/>
+        </property>
+        <property name="solucionado" type="boolean">
+            <column name="SOLUCIONADO" not-null="true"/>
+        </property>
+        <many-to-one name="dispositivo" class="co.edu.udea.iw.dto.Dispositivo" fetch="join">
+            <column name="DISPOSITIVO" length="30" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

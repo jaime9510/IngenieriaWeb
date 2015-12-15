@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-nov-2015 22:41:15 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="co.edu.udea.iw.dto.Prestamo_has_Dispositivo" table="PRESTAMO_HAS_DISPOSITIVO">
+		<composite-id name="id" class="co.edu.udea.iw.dto.Prestamo_has_DispositivoId">
+			<key-many-to-one name="prestamo" class="co.edu.udea.iw.dto.Prestamo">
+				<column name="prestamo" />
+			</key-many-to-one>
+			<key-many-to-one name="referencia" class="co.edu.udea.iw.dto.Dispositivo">
+				<column name="referencia"></column>
+			</key-many-to-one>
+		</composite-id>
+	</class>
+</hibernate-mapping>

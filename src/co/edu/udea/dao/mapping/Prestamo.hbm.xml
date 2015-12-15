@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-nov-2015 22:37:30 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="co.edu.udea.iw.dto.Prestamo" table="PRESTAMO">
+		<id name="idPrestamo" type="int">
+			<column name="IDPRESTAMO" />
+			<generator class="increment" />
+		</id>
+		<property name="nombreUsuario" type="java.lang.String">
+			<column name="NOMBREUSUARIO" length="30" not-null="true" />
+		</property>
+		<property name="cedulaUsuario" type="java.lang.String">
+			<column name="CEDULAUSUARIO" length="20" not-null="true" />
+		</property>
+		<property name="fechaInicio" type="java.util.Date">
+			<column name="FECHAINICIO" length="6" not-null="true" />
+		</property>
+		<property name="fechaFin" type="java.util.Date">
+			<column name="FECHAFIN" length="6" not-null="true" />
+		</property>
+		<many-to-one name="administrador" class="co.edu.udea.iw.dto.Administrador"
+			fetch="join">
+			<column name="ADMINISTRADOR" />
+		</many-to-one>
+		<property name="fechaEntrega" type="java.util.Date">
+			<column name="FECHAENTREGA"  />
+		</property>
+		<property name="aceptada" type="boolean">
+			<column name="ACEPTADA" not-null="true" />
+		</property>
+		<property name="correoUsuario" type="java.lang.String">
+			<column name="CORREOUSUARIO" length="45" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping>
