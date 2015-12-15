@@ -98,7 +98,7 @@ public class FalloDaoImpl extends HibernateDaoSupport implements FalloDao {
 	}
 
 	@Override
-	public List<Fallo> consultarDañosSinSolucion() throws MyException {
+	public List<Fallo> consultarDanosSinSolucion() throws MyException {
 		List<Fallo> fallos = new ArrayList<Fallo>();
 		// Se crea una session con la que se obtendrá una conexión física con la
 		// Base de datos

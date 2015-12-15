@@ -89,7 +89,7 @@ public class FalloBLImpl implements FalloBL{
 	@Override
 	public List<Fallo> consultarDanosSinSolucion() throws MyException {
 		List <Fallo>fallos = new ArrayList<Fallo>();
-		fallos = falloDao.consultarDañosSinSolucion();
+		fallos = falloDao.consultarDanosSinSolucion();
 		return fallos;
 	}
 

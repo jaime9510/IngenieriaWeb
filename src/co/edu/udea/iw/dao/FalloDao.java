@@ -79,7 +79,7 @@ public interface FalloDao {
 	 *             Si la operación con la base de datos falla y no puede
 	 *             realizarse la consulta
 	 */
-	public List<Fallo> consultarDañosSinSolucion() throws MyException;
+	public List<Fallo> consultarDanosSinSolucion() throws MyException;
 	
 	public Fallo consultarUno(int id) throws MyException;
 }

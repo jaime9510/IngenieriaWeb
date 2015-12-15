@@ -87,10 +87,10 @@ public class FalloDaoImplTest {
 	}
 
 	@Test
-	public void testConsultarDañosSinSolucion() {
+	public void testConsultarDanosSinSolucion() {
 		List<Fallo> fallos = new ArrayList<Fallo>();
 		try{
-			fallos = falloDao.consultarDañosSinSolucion();
+			fallos = falloDao.consultarDanosSinSolucion();
 			assertTrue(fallos.size()>0);
 		}catch(Exception e){
 			e.printStackTrace();

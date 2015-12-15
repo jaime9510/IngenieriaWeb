@@ -7,7 +7,7 @@ import co.edu.udea.iw.exception.MyException;
 
 /**
  * Esta interfaz contiene todas las funciones que permiten definir las
- * regras del negocio para el usuario administrador
+ * reglas del negocio para el usuario administrador
  * @author Carolina Isaza
  * @author Jaime Londoño
  * @author Sebastián Jiménez
