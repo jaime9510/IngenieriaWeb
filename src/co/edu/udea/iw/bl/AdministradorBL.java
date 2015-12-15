@@ -6,7 +6,12 @@ import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.exception.MyException;
 
 /**
- * @author Caro
+ * Esta interfaz contiene todas las funciones que permiten definir las
+ * regras del negocio para el usuario administrador
+ * @author Carolina Isaza
+ * @author Jaime Londoño
+ * @author Sebastián Jiménez
+ * 
  *
  */
 public interface AdministradorBL {
