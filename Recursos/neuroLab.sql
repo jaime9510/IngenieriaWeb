@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `neurociencias`.`Prestamo` (
   `fechaInicio` DATETIME(6) NOT NULL COMMENT '',
   `fechaFin` DATETIME(6) NOT NULL COMMENT '',
   `administrador` VARCHAR(45) NOT NULL COMMENT '',
-  `aceptada` TINYINT(1) NULL COMMENT '',
+  `estado` INT NOT NULL COMMENT '',
   `correoUsuario` VARCHAR(45) NOT NULL COMMENT '',
   `fechaEntrega` DATETIME(6) NULL COMMENT '',
   PRIMARY KEY (`idPrestamo`)  COMMENT '',
