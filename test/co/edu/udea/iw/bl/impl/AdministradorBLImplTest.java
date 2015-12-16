@@ -52,12 +52,11 @@ public class AdministradorBLImplTest {
 
 	//@Test
 	public void testActualizarAdministrador() {
-		String nombre = "Sebastian";
-		String apellidos = "Jimenez Caro";
-		String contrasena = "sebasj14";
+		String contrasenaNueva = "sebas";
+		String contrasenaVieja = "sebasj14";
 		String email = "sebasj14@gmail.com";
 		try{
-			administradorBL.actualizarAdministrador(email, contrasena, nombre, apellidos);
+			administradorBL.actualizarPassAdministrador(email, contrasenaNueva, contrasenaVieja);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
