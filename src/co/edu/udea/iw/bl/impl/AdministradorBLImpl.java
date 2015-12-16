@@ -1,8 +1,5 @@
 package co.edu.udea.iw.bl.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import co.edu.udea.iw.bl.AdministradorBL;
 import co.edu.udea.iw.dao.AdministradorDao;
 import co.edu.udea.iw.dto.Administrador;
@@ -29,11 +26,11 @@ public class AdministradorBLImpl implements AdministradorBL {
 		Cifrar cifrar = new Cifrar();
 		if (email == null || "".equals(email)) {
 			if (!validar.isEmail(email)) {
-				throw new MyException("EL Email no es válido");
+				throw new MyException("EL Email no es vï¿½lido");
 			}
 		}
 		if (pass == null || "".equals(pass)) {
-			throw new MyException("Ingrese una contraseña");
+			throw new MyException("Ingrese una contraseï¿½a");
 		}
 		admin = administradorDao.consultarUno(email);
 		if (admin != null) {
@@ -48,29 +45,30 @@ public class AdministradorBLImpl implements AdministradorBL {
 	}
 
 	@Override
-	public void crearAdministrador(String email, String contrasena, String nombre, String apellido) throws MyException {
+	public void crearAdministrador(String email, String contrasena,
+			String nombre, String apellido) throws MyException {
 		Administrador admin = new Administrador();
 		Validaciones validar = new Validaciones();
 		Cifrar cifrar = new Cifrar();
 		if (email == null || "".equals(email)) {
 			if (!validar.isEmail(email)) {
-				throw new MyException("EL Email no es válido");
+				throw new MyException("EL Email no es vï¿½lido");
 			}
 		}
 		if (contrasena == null || "".equals(contrasena)) {
-			throw new MyException("La contraseña no es válida");
+			throw new MyException("La contraseï¿½a no es vï¿½lida");
 		}
 		if (nombre == null || "".equals(nombre)) {
-			throw new MyException("El nombre no es válido");
+			throw new MyException("El nombre no es vï¿½lido");
 		}
 		if (apellido == null || "".equals(apellido)) {
-			throw new MyException("El apellido no es válido");
+			throw new MyException("El apellido no es vï¿½lido");
 		}
 		Administrador administrador = administradorDao.consultarUno(email);
 		if (administrador != null) {
 			throw new MyException("Ya existe un administrador con este email");
 		}
-		
+
 		admin.setApellidos(apellido);
 		admin.setEmail(email);
 		admin.setNombre(nombre);
@@ -79,58 +77,62 @@ public class AdministradorBLImpl implements AdministradorBL {
 	}
 
 	@Override
-	public void actualizarAdministrador(String email, String contrasena, String nombre, String apellido)
+	public void actualizarPassAdministrador(String email,
+			String contrasenaNueva, String contrasenaVieja) throws MyException {
+		Administrador admin = new Administrador();
+		Validaciones validar = new Validaciones();
+		Cifrar cifrar = new Cifrar();
+		if (email == null || "".equals(email)) {
+			if (!validar.isEmail(email)) {
+				throw new MyException("EL Email no es vï¿½lido");
+			}
+		}
+		if (contrasenaNueva == null || "".equals(contrasenaNueva)) {
+			throw new MyException("La contraseï¿½a no es vï¿½lida");
+		}
+		if (contrasenaVieja == null || "".equals(contrasenaVieja)) {
+			throw new MyException("La contraseï¿½a no es vï¿½lida");
+		}
+
+		admin = administradorDao.consultarUno(email);
+		if (admin == null) {
+			throw new MyException("No existe un administrador con ese email");
+		}
+
+		if (cifrar.encrypt(contrasenaVieja).equals(admin.getContrasena())) {
+			// return Boolean.TRUE;
+			admin.setContrasena(cifrar.encrypt(contrasenaNueva));
+
+			administradorDao.actualizar(admin);
+		} else {
+			// return Boolean.FALSE;
+			throw new MyException("La contrasena no es correcta");
+		}
+
+	}
+
+	@Override
+	public void eliminarAdministrador(String email, String contrasena)
 			throws MyException {
 		Administrador admin = new Administrador();
 		Validaciones validar = new Validaciones();
 		Cifrar cifrar = new Cifrar();
 		if (email == null || "".equals(email)) {
 			if (!validar.isEmail(email)) {
-				throw new MyException("EL Email no es válido");
+				throw new MyException("EL Email no es vï¿½lido");
 			}
 		}
 		if (contrasena == null || "".equals(contrasena)) {
-			throw new MyException("La contraseña no es válida");
-		}
-		if (nombre == null || "".equals(nombre)) {
-			throw new MyException("El nombre no es válido");
-		}
-		if (apellido == null || "".equals(apellido)) {
-			throw new MyException("El apellido no es válido");
+			throw new MyException("La contraseï¿½a no es vï¿½lida");
 		}
 		admin = administradorDao.consultarUno(email);
-		if(admin == null){
-			throw new MyException("No existe un administrador con ese email");
-		}
-		admin.setApellidos(apellido);
-		admin.setNombre(nombre);
-		admin.setContrasena(cifrar.encrypt(contrasena));
-		
-		administradorDao.actualizar(admin);
-
-	}
-
-	@Override
-	public void eliminarAdministrador(String email, String contrasena) throws MyException {
-		Administrador admin = new Administrador();
-		Validaciones validar = new Validaciones();
-		Cifrar cifrar = new Cifrar();
-		if (email == null || "".equals(email)) {
-			if (!validar.isEmail(email)) {
-				throw new MyException("EL Email no es válido");
-			}
-		}
-		if (contrasena == null || "".equals(contrasena)) {
-			throw new MyException("La contraseña no es válida");
-		}
-		admin = administradorDao.consultarUno(email);
-		if(admin == null){
+		if (admin == null) {
 			throw new MyException("No existe un administrador con este email");
 		}
-		if(admin.getContrasena().equals(cifrar.encrypt(contrasena))){
+		if (admin.getContrasena().equals(cifrar.encrypt(contrasena))) {
 			administradorDao.eliminar(admin);
-		}else{
-			throw new MyException("Contraseña érronea");
+		} else {
+			throw new MyException("Contraseï¿½a ï¿½rronea");
 		}
 
 	}
