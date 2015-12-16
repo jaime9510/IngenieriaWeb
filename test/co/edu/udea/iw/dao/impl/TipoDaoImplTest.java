@@ -35,7 +35,7 @@ public class TipoDaoImplTest {
 		}
 	}
 
-	//@Test
+	@Test
 	public void testCrear() {
 		Tipo tipo = new Tipo();
 		tipo.setNombre("Tablet");

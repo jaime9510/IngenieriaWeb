@@ -12,14 +12,15 @@ public class Prestamo implements Serializable{
 	private Date fechaFin;
 	private Date fechaEntrega;
 	private Administrador administrador;
-	private boolean aceptada;
+	private int estado;
 	private String correoUsuario;
 	
-	public boolean getAceptada() {
-		return aceptada;
+	
+	public int getEstado() {
+		return estado;
 	}
-	public void setAceptada(boolean aceptada) {
-		this.aceptada = aceptada;
+	public void setEstado(int estado) {
+		this.estado = estado;
 	}
 	public String getCorreoUsuario() {
 		return correoUsuario;

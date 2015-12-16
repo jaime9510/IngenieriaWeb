@@ -27,8 +27,8 @@
 		<property name="fechaEntrega" type="java.util.Date">
 			<column name="FECHAENTREGA"  />
 		</property>
-		<property name="aceptada" type="boolean">
-			<column name="ACEPTADA" not-null="true" />
+		<property name="estado" type="int">
+			<column name="ESTADO" not-null="true" />
 		</property>
 		<property name="correoUsuario" type="java.lang.String">
 			<column name="CORREOUSUARIO" length="45" not-null="true"></column>

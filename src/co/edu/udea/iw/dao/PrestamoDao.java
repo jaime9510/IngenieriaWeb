@@ -24,4 +24,8 @@ public interface PrestamoDao {
 	public void modificar(Prestamo prestamo) throws MyException;
 
 	public Prestamo consultarUno(int id) throws MyException;
+	
+	public List<Prestamo> prestamosSinRevisar()throws MyException;
+	
+	public List<Prestamo> prestamoPorUsuario(String correoUsuario) throws MyException;
 }

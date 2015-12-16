@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import co.edu.udea.iw.dao.PrestamoDao;
 import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Prestamo;
+import co.edu.udea.iw.exception.MyException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:SpringConf.xml")
@@ -46,6 +47,7 @@ public class PrestamoDaoImplTest {
 		prestamo.setAdministrador(admin);
 		prestamo.setCedulaUsuario("1017238258");
 		prestamo.setCorreoUsuario("Jessi@gmail.com");
+		prestamo.setEstado(0);
 		prestamo.setFechaInicio(fechaIn);
 		prestamo.setFechaFin(fechaFin);
 		prestamo.setNombreUsuario("Jessica");
@@ -63,7 +65,7 @@ public class PrestamoDaoImplTest {
 		Date fechaIn = new Date();
 		Date fechaFin = new Date();
 		admin.setEmail("carito9994@gmail.com");
-		prestamo.setAceptada(true);
+		prestamo.setEstado(1);
 		prestamo.setAdministrador(admin);
 		prestamo.setCedulaUsuario("1017238258");
 		prestamo.setCorreoUsuario("Jessi@gmail.com");
@@ -84,6 +86,29 @@ public class PrestamoDaoImplTest {
 		try{
 			prestamo = prestamoDao.consultarUno(id);
 			assertTrue(prestamo != null);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testPrestamosSinRevisar(){
+		List<Prestamo> prestamos = new ArrayList<Prestamo>();
+		try{
+			prestamos = prestamoDao.prestamosSinRevisar();
+			assertTrue(prestamos.size()>0);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testPrestamoPorUsuario(){
+		List<Prestamo> prestamos = new ArrayList<Prestamo>();
+		String email = "Jessi@gmail.com";
+		try{
+			prestamos = prestamoDao.prestamoPorUsuario(email);
+			assertTrue(prestamos.size()>0);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

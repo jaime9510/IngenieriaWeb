@@ -34,7 +34,7 @@ public class DispositivoDaoImplTest {
 		}
 	}
 
-	//@Test
+	@Test
 	public void testCrear() {
 		Dispositivo dispositivo = new Dispositivo();
 		dispositivo.setReferencia("001");

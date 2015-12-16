@@ -22,8 +22,6 @@ public class AdministradorBLImpl implements AdministradorBL {
 		this.administradorDao = administradorDao;
 	}
 
-	
-
 	@Override
 	public boolean login(String email, String pass) throws MyException {
 		Administrador admin = new Administrador();

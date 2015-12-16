@@ -97,4 +97,41 @@ public class PrestamoDaoImpl extends HibernateDaoSupport implements PrestamoDao 
 		return prestamo;
 	}
 
+	@Override
+	public List<Prestamo> prestamosSinRevisar() throws MyException {
+		List<Prestamo> prestamos = new ArrayList<Prestamo>();
+		// Se crea una session con la que se obtendrá una conexión física con la
+		// Base de datos
+		Session session = null;
+		try {
+			session = getSession();
+			Criteria criteria = session.createCriteria(Prestamo.class).add(Restrictions.eq("estado", 0));
+			prestamos = criteria.list();
+		} catch (HibernateException e) {
+			throw new MyException(e);
+		} finally {
+			// session.close();
+		}
+		return prestamos;
+	}
+
+	@Override
+	public List<Prestamo> prestamoPorUsuario(String correoUsuario) throws MyException {
+		List<Prestamo> prestamos = new ArrayList<Prestamo>();
+		// Se crea una session con la que se obtendrá una conexión física con la
+		// Base de datos
+		Session session = null;
+		try {
+			session = getSession();
+			Criteria criteria = session.createCriteria(Prestamo.class)
+					.add(Restrictions.eq("correoUsuario", correoUsuario));
+			prestamos = criteria.list();
+		} catch (HibernateException e) {
+			throw new MyException(e);
+		} finally {
+			// session.close();
+		}
+		return prestamos;
+	}
+
 }
