@@ -70,4 +70,7 @@
 		<property name="dispositivoDao" ref="DispositivoDao"></property>
 		<property name="falloDao" ref="FalloDao"></property>
 	</bean>
+	<bean id="TipoBL" class="co.edu.udea.iw.bl.impl.TipoBLImpl">
+		<property name="tipoDao" ref="TipoDao"></property>
+	</bean>
 </beans>

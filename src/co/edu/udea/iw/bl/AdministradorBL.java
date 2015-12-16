@@ -16,7 +16,6 @@ import co.edu.udea.iw.exception.MyException;
  */
 public interface AdministradorBL {
 
-	public List<Administrador> mostrarTodos() throws MyException;
 
 	public boolean login(String email, String pass) throws MyException;
 

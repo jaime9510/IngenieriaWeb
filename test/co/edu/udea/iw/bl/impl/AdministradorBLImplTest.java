@@ -24,17 +24,6 @@ public class AdministradorBLImplTest {
 
 	@Autowired
 	AdministradorBL administradorBL;
-	@Test
-	public void testMostrarTodos() {
-		List<Administrador> lista = new ArrayList<Administrador>();
-		try{
-		lista = administradorBL.mostrarTodos();
-		Assert.assertTrue(lista.size()> 0);
-		
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
 
 	@Test
 	public void testLogin() {

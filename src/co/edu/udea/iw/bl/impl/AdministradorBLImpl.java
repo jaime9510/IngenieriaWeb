@@ -22,12 +22,7 @@ public class AdministradorBLImpl implements AdministradorBL {
 		this.administradorDao = administradorDao;
 	}
 
-	@Override
-	public List<Administrador> mostrarTodos() throws MyException {
-		List<Administrador> administradores = new ArrayList<Administrador>();
-		administradores = administradorDao.mostrarTodos();
-		return administradores;
-	}
+	
 
 	@Override
 	public boolean login(String email, String pass) throws MyException {
