@@ -18,7 +18,7 @@ import junit.framework.Assert;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:SpringConf.xml")
-@Transactional
+
 public class TipoDaoImplTest {
 
 	@Autowired
@@ -35,7 +35,7 @@ public class TipoDaoImplTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testCrear() {
 		Tipo tipo = new Tipo();
 		tipo.setNombre("Tablet");
@@ -54,6 +54,18 @@ public class TipoDaoImplTest {
 		try{
 			tipo= tipoDao.consultarUno(id);
 			Assert.assertTrue(tipo !=null);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testConsultarPorNombre(){
+		Tipo tipo = new Tipo();
+		String nombre = "Tablet";
+		try{
+			tipo = tipoDao.consultarPorNombre(nombre);
+			assertTrue(tipo != null);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

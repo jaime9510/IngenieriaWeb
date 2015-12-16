@@ -80,4 +80,22 @@ public class TipoDaoImpl extends HibernateDaoSupport implements TipoDao {
 		return tipo;
 	}
 
+	@Override
+	public Tipo consultarPorNombre(String nombre) throws MyException {
+		Tipo tipo;
+		// Se crea una session con la que se obtendrá una conexión física con la
+		// Base de datos
+		Session session = null;
+		try {
+			session = getSession();
+			Criteria criteria = session.createCriteria(Tipo.class).add(Restrictions.eq("nombre", nombre));
+			tipo = (Tipo) criteria.uniqueResult();
+		} catch (HibernateException e) {
+			throw new MyException(e);
+		} finally {
+			// session.close();
+		}
+		return tipo;
+	}
+
 }

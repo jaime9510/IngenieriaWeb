@@ -18,7 +18,7 @@ import junit.framework.Assert;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:SpringConf.xml")
-@Transactional
+
 public class DispositivoBLImplTest {
 
 	@Autowired
@@ -35,21 +35,22 @@ public class DispositivoBLImplTest {
 		}
 	}
 
-	// @Test
+	@Test
 	public void testCrearDispositivo() {
 		String referencia = "A0021R";
 		String nombre = "Motorola G primera generación";
 		String descripcion = "1 GB de RAM";
 		int tipo = 1;
 		String foto = "url";
+		String emailAdministrador = "sebasj14@gmail.com";
 		try {
-			dispositivoBL.crearDispositivo(referencia, nombre, descripcion, tipo, foto);
+			dispositivoBL.crearDispositivo(referencia, nombre, descripcion, tipo, foto, emailAdministrador);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	//@Test
+	// @Test
 	public void testActualizarDispositivo() {
 		String referencia = "A0021R";
 		String nombre = "Motorola G primera generación";
@@ -57,8 +58,10 @@ public class DispositivoBLImplTest {
 		int tipo = 1;
 		String foto = "url";
 		boolean disponible = false;
+		String emailAdministrador = "sebasj14@gmail.com";
 		try {
-			dispositivoBL.actualizarDispositivo(referencia, nombre, descripcion, tipo, foto, disponible);
+			dispositivoBL.actualizarDispositivo(referencia, nombre, descripcion, tipo, foto, disponible,
+					emailAdministrador);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,28 +69,28 @@ public class DispositivoBLImplTest {
 
 	@Test
 	public void testEliminarDispositivo() {
-		
+
 	}
 
 	@Test
 	public void testConsultarPorTipo() {
-		List <Dispositivo> dispositivos = new ArrayList<Dispositivo>();
+		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
 		int idTipo = 1;
-		try{
+		try {
 			dispositivos = dispositivoBL.consultarPorTipo(idTipo);
-			Assert.assertTrue(dispositivos.size()>0);
-		}catch(Exception e){
+			Assert.assertTrue(dispositivos.size() > 0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Test
 	public void testConsultarDisponibles() {
-		List <Dispositivo> dispositivos = new ArrayList<Dispositivo>();
-		try{
-			dispositivos= dispositivoBL.consultarDisponibles();
-			Assert.assertTrue(dispositivos.size()>0);
-		}catch(Exception e){
+		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
+		try {
+			dispositivos = dispositivoBL.consultarDisponibles();
+			Assert.assertTrue(dispositivos.size() > 0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -96,10 +99,10 @@ public class DispositivoBLImplTest {
 	public void testConsultarUno() {
 		Dispositivo dispositivo = new Dispositivo();
 		String referencia = "A0021R";
-		try{
+		try {
 			dispositivo = dispositivoBL.consultarUno(referencia);
 			Assert.assertTrue(dispositivo != null);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

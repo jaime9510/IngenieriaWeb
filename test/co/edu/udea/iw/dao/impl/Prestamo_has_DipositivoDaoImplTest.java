@@ -20,7 +20,7 @@ import co.edu.udea.iw.dto.Prestamo_has_DispositivoId;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:SpringConf.xml")
-@Transactional
+
 public class Prestamo_has_DipositivoDaoImplTest {
 
 	@Autowired

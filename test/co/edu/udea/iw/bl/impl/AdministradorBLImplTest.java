@@ -19,7 +19,7 @@ import junit.framework.Assert;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:SpringConf.xml")
-@Transactional
+
 public class AdministradorBLImplTest {
 
 	@Autowired

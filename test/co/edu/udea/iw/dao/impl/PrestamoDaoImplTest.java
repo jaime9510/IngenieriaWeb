@@ -19,7 +19,6 @@ import co.edu.udea.iw.dto.Prestamo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:SpringConf.xml")
-@Transactional
 
 public class PrestamoDaoImplTest {
 
@@ -37,14 +36,13 @@ public class PrestamoDaoImplTest {
 		}
 	}
 
-	//@Test
+	@Test
 	public void testCrear() {
 		Prestamo prestamo = new Prestamo();
 		Administrador admin = new Administrador();
 		Date fechaIn = new Date();
 		Date fechaFin = new Date(2015, 12, 18);
 		admin.setEmail("carito9994@gmail.com");
-		prestamo.setAceptada(true);
 		prestamo.setAdministrador(admin);
 		prestamo.setCedulaUsuario("1017238258");
 		prestamo.setCorreoUsuario("Jessi@gmail.com");
@@ -58,7 +56,7 @@ public class PrestamoDaoImplTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testModificar() {
 		Prestamo prestamo = new Prestamo();
 		Administrador admin = new Administrador();

@@ -64,5 +64,10 @@
 	<bean id="DispositivoBL" class="co.edu.udea.iw.bl.impl.DispositivoBLImpl">
 		<property name="dispositivoDao" ref="DispositivoDao"></property>
 		<property name="tipoDao" ref="TipoDao"></property>
+		<property name="administradorDao" ref="AdministradorDao"></property>
+	</bean>
+	<bean id="FalloBL" class="co.edu.udea.iw.bl.impl.FalloBLImpl">
+		<property name="dispositivoDao" ref="DispositivoDao"></property>
+		<property name="falloDao" ref="FalloDao"></property>
 	</bean>
 </beans>

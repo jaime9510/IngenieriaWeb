@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import co.edu.udea.iw.bl.DispositivoBL;
+import co.edu.udea.iw.dao.AdministradorDao;
 import co.edu.udea.iw.dao.DispositivoDao;
 import co.edu.udea.iw.dao.TipoDao;
+import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Tipo;
 import co.edu.udea.iw.exception.MyException;
@@ -15,6 +17,16 @@ import co.edu.udea.iw.exception.MyException;
 public class DispositivoBLImpl implements DispositivoBL {
 
 	DispositivoDao dispositivoDao;
+	AdministradorDao administradorDao;
+
+	public AdministradorDao getAdministradorDao() {
+		return administradorDao;
+	}
+
+	public void setAdministradorDao(AdministradorDao administradorDao) {
+		this.administradorDao = administradorDao;
+	}
+
 	public DispositivoDao getDispositivoDao() {
 		return dispositivoDao;
 	}
@@ -31,7 +43,6 @@ public class DispositivoBLImpl implements DispositivoBL {
 		this.tipoDao = tipoDao;
 	}
 
-
 	TipoDao tipoDao;
 
 	@Override
@@ -42,8 +53,8 @@ public class DispositivoBLImpl implements DispositivoBL {
 	}
 
 	@Override
-	public void crearDispositivo(String referencia, String nombre, String descripcion, int tipo, String foto)
-			throws MyException {
+	public void crearDispositivo(String referencia, String nombre, String descripcion, int tipo, String foto,
+			String emailAdministrador) throws MyException {
 		Dispositivo disp = new Dispositivo();
 		Tipo tp = new Tipo();
 		if (referencia == null || "".equals(referencia)) {
@@ -58,6 +69,13 @@ public class DispositivoBLImpl implements DispositivoBL {
 		if (foto == null || "".equals(foto)) {
 			throw new MyException("La url de la foto no es válida");
 		}
+		if(emailAdministrador == null || "".equals(emailAdministrador)){
+			throw new MyException("Ingrese un administrador válido");
+		}
+		Administrador administrador = administradorDao.consultarUno(emailAdministrador);
+		if(administrador == null){
+			throw new MyException("El administrador no existe");
+		}
 		Dispositivo dispositivo = dispositivoDao.consultarUno(referencia);
 		if (dispositivo != null) {
 			throw new MyException("Ya existe un dispositivo con esa referencia");
@@ -66,6 +84,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 		if (tipoDispositivo == null) {
 			throw new MyException("Seleccione un tipo de dispositivo válido");
 		}
+		
 		tp.setId(tipo);
 		disp.setReferencia(referencia);
 		disp.setDescripcion(descripcion);
@@ -79,7 +98,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 
 	@Override
 	public void actualizarDispositivo(String referencia, String nombre, String descripcion, int tipo, String foto,
-			boolean disponible) throws MyException {
+			boolean disponible, String emailAdministrador) throws MyException {
 		Tipo tp = new Tipo();
 		if (referencia == null || "".equals(referencia)) {
 			throw new MyException("La referencia no es válida");
@@ -92,6 +111,13 @@ public class DispositivoBLImpl implements DispositivoBL {
 		}
 		if (foto == null || "".equals(foto)) {
 			throw new MyException("La url de la foto no es válida");
+		}
+		if(emailAdministrador == null || "".equals(emailAdministrador)){
+			throw new MyException("Ingrese un administrador válido");
+		}
+		Administrador administrador = administradorDao.consultarUno(emailAdministrador);
+		if(administrador == null){
+			throw new MyException("El administrador no existe");
 		}
 		Dispositivo dispositivo = dispositivoDao.consultarUno(referencia);
 		if (dispositivo == null) {
@@ -112,9 +138,16 @@ public class DispositivoBLImpl implements DispositivoBL {
 	}
 
 	@Override
-	public void eliminarDispositivo(String referencia) throws MyException {
+	public void eliminarDispositivo(String referencia, String emailAdministrador) throws MyException {
 		if (referencia == null || "".equals(referencia)) {
 			throw new MyException("La referencia no es válida");
+		}
+		if(emailAdministrador == null || "".equals(emailAdministrador)){
+			throw new MyException("Ingrese un administrador válido");
+		}
+		Administrador administrador = administradorDao.consultarUno(emailAdministrador);
+		if(administrador == null){
+			throw new MyException("El administrador no existe");
 		}
 		Dispositivo dispositivo = dispositivoDao.consultarUno(referencia);
 		if (dispositivo == null) {
@@ -145,7 +178,6 @@ public class DispositivoBLImpl implements DispositivoBL {
 		dispositivos = dispositivoDao.consultarDisponibles();
 		return dispositivos;
 	}
-	
 
 	@Override
 	public Dispositivo consultarUno(String referencia) throws MyException {

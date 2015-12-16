@@ -20,6 +20,22 @@ public class FalloBLImpl implements FalloBL{
 	FalloDao falloDao;
 	DispositivoDao dispositivoDao;
 	
+	public FalloDao getFalloDao() {
+		return falloDao;
+	}
+
+	public void setFalloDao(FalloDao falloDao) {
+		this.falloDao = falloDao;
+	}
+
+	public DispositivoDao getDispositivoDao() {
+		return dispositivoDao;
+	}
+
+	public void setDispositivoDao(DispositivoDao dispositivoDao) {
+		this.dispositivoDao = dispositivoDao;
+	}
+
 	@Override
 	public List<Fallo> consultarTodos() throws MyException {
 		

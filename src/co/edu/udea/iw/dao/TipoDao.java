@@ -56,4 +56,6 @@ public interface TipoDao {
 	 *             realizarse la consulta
 	 */
 	public Tipo consultarUno(int id) throws MyException;
+	
+	public Tipo consultarPorNombre(String nombre) throws MyException;
 }

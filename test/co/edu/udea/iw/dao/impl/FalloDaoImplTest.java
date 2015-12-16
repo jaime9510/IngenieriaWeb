@@ -19,7 +19,6 @@ import co.edu.udea.iw.dto.Fallo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:SpringConf.xml")
-@Transactional
 public class FalloDaoImplTest {
 
 	@Autowired
