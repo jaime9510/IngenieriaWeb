@@ -135,7 +135,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 		dispositivo.setNombre(nombre);
 		dispositivo.setReferencia(referencia);
 		dispositivo.setTipo(tp);
-		dispositivoDao.crear(dispositivo);
+		dispositivoDao.actualizar(dispositivo);
 	}
 
 	@Override
