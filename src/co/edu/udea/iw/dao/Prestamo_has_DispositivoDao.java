@@ -6,13 +6,13 @@ import co.edu.udea.iw.dto.Prestamo_has_Dispositivo;
 import co.edu.udea.iw.exception.MyException;
 
 /**
- * Esta interaz contiene la definición de los métodos correspondientes a las
- * funciones que se podrán hacer para el registro de todos los dispositivos
- * asociados a un préstamo en relación con el acceso a la base de datos
+ * Esta interfaz contiene la definicion de los metodos correspondientes a las
+ * funciones que se podran hacer para el registro de todos los dispositivos
+ * asociados a un prestamo en relacion con el acceso a la base de datos.
  * 
  * @author Carolina Isaza
- * @author Jaime Londoño
- * @author Sebastián Jiménez
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
  *
  */
 public interface Prestamo_has_DispositivoDao {
