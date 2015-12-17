@@ -53,11 +53,6 @@ public interface DispositivoBL {
 	 */
 	public List<Dispositivo> consultarPorTipo(int tipo) throws MyException;
 
-	/**
-	 * @return
-	 * @throws MyException
-	 */
-	public List<Dispositivo> consultarDisponibles() throws MyException;
 
 	/**
 	 * @param referencia

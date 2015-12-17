@@ -15,11 +15,11 @@ import co.edu.udea.iw.exception.MyException;
  * @author Caro
  *
  */
-public class FalloBLImpl implements FalloBL{
-	
+public class FalloBLImpl implements FalloBL {
+
 	FalloDao falloDao;
 	DispositivoDao dispositivoDao;
-	
+
 	public FalloDao getFalloDao() {
 		return falloDao;
 	}
@@ -38,29 +38,34 @@ public class FalloBLImpl implements FalloBL{
 
 	@Override
 	public List<Fallo> consultarTodos() throws MyException {
-		
-		return null;
+		List<Fallo> fallos = new ArrayList<Fallo>();
+		try {
+			fallos = falloDao.consultarTodos();
+		} catch (MyException e) {
+			e.getMessage();
+		}
+		return fallos;
 	}
 
 	@Override
 	public void crearFallo(int idFallo, String error, String referenciaDispositivo) throws MyException {
 		Fallo fallo = new Fallo();
 		Date fechaDeteccion = new Date();
-		if(idFallo == 0 ){
+		if (idFallo == 0) {
 			throw new MyException("Ingrese un identificador de fallo válido");
 		}
-		if(error == null || "".equals(error)){
+		if (error == null || "".equals(error)) {
 			throw new MyException("El campo de error no puede ser nulo o vacío");
 		}
-		if(referenciaDispositivo == null || "".equals(referenciaDispositivo)){
+		if (referenciaDispositivo == null || "".equals(referenciaDispositivo)) {
 			throw new MyException("La referencia no es válida");
 		}
 		Dispositivo dispositivo = dispositivoDao.consultarUno(referenciaDispositivo);
-		if(dispositivo == null){
+		if (dispositivo == null) {
 			throw new MyException("El dispositivo no existe");
 		}
 		Fallo falloExiste = falloDao.consultarUno(idFallo);
-		if(falloExiste != null){
+		if (falloExiste != null) {
 			throw new MyException("El fallo ya existe");
 		}
 		fallo.setIdFallo(idFallo);
@@ -69,17 +74,17 @@ public class FalloBLImpl implements FalloBL{
 		fallo.setFechaDeteccion(fechaDeteccion);
 		fallo.setSolucionado(false);
 		falloDao.crear(fallo);
-		
+
 	}
 
 	@Override
 	public void actualizarFallo(int idFallo, boolean solucionado) throws MyException {
 		Fallo fallo = new Fallo();
-		if(idFallo == 0){
+		if (idFallo == 0) {
 			throw new MyException("Ingrese un identificador de fallo válido");
 		}
 		fallo = falloDao.consultarUno(idFallo);
-		if(fallo == null){
+		if (fallo == null) {
 			throw new MyException("El fallo a actualizar no existe");
 		}
 		fallo.setSolucionado(solucionado);
@@ -90,21 +95,21 @@ public class FalloBLImpl implements FalloBL{
 	public List<Fallo> consultarFalloPorDispositivo(String referenciaDispositivo) throws MyException {
 		Dispositivo dispositivo = new Dispositivo();
 		List<Fallo> fallos = new ArrayList<Fallo>();
-		if(referenciaDispositivo == null || "".equals(referenciaDispositivo)){
+		if (referenciaDispositivo == null || "".equals(referenciaDispositivo)) {
 			throw new MyException("Ingrese una referencia válida");
 		}
 		dispositivo = dispositivoDao.consultarUno(referenciaDispositivo);
-		if(dispositivo == null){
+		if (dispositivo == null) {
 			throw new MyException("El dipositivo no existe");
 		}
 		fallos = falloDao.consultarFalloPorDispositivo(dispositivo);
-		
+
 		return fallos;
 	}
 
 	@Override
 	public List<Fallo> consultarDanosSinSolucion() throws MyException {
-		List <Fallo>fallos = new ArrayList<Fallo>();
+		List<Fallo> fallos = new ArrayList<Fallo>();
 		fallos = falloDao.consultarDanosSinSolucion();
 		return fallos;
 	}

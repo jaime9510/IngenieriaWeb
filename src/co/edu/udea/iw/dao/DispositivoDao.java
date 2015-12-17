@@ -1,5 +1,6 @@
 package co.edu.udea.iw.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import co.edu.udea.iw.dto.Dispositivo;
@@ -81,16 +82,6 @@ public interface DispositivoDao {
 	 */
 	public List<Dispositivo> consultarPorTipo(Tipo tipo) throws MyException;
 
-	/**
-	 * Definición del método con el que se consultarán los Dispositivos que
-	 * estén reportados en la BD como disponibles
-	 * 
-	 * @return Lista de Dispositivos disponibles para préstamo
-	 * @throws MyException
-	 *             Si la operación con la base de datos falla y no puede
-	 *             realizarse la consulta
-	 */
-	public List<Dispositivo> consultarDisponibles() throws MyException;
 
 	/**
 	 * Definición del método con el que se consultará desde la BD el dispositivo
@@ -105,4 +96,6 @@ public interface DispositivoDao {
 	 *             realizarse la consulta
 	 */
 	public Dispositivo consultarUno(String referencia) throws MyException;
+	public List<String> consultarDisponibles(Date fechaInicio, Date fechaFin) throws MyException;
+	public Boolean consultarDispositivoDisponible(Date fechaInicio, Date fechaFin, String referencia) throws MyException;
 }

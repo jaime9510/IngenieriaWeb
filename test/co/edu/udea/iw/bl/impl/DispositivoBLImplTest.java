@@ -85,17 +85,6 @@ public class DispositivoBLImplTest {
 	}
 
 	@Test
-	public void testConsultarDisponibles() {
-		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
-		try {
-			dispositivos = dispositivoBL.consultarDisponibles();
-			Assert.assertTrue(dispositivos.size() > 0);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
 	public void testConsultarUno() {
 		Dispositivo dispositivo = new Dispositivo();
 		String referencia = "A0021R";

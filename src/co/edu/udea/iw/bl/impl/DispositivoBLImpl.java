@@ -173,13 +173,6 @@ public class DispositivoBLImpl implements DispositivoBL {
 	}
 
 	@Override
-	public List<Dispositivo> consultarDisponibles() throws MyException {
-		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
-		dispositivos = dispositivoDao.consultarDisponibles();
-		return dispositivos;
-	}
-
-	@Override
 	public Dispositivo consultarUno(String referencia) throws MyException {
 		Dispositivo dispositivo = new Dispositivo();
 		if (referencia == null || "".equals(referencia)) {

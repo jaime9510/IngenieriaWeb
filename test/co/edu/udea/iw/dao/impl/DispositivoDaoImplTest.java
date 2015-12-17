@@ -3,6 +3,7 @@ package co.edu.udea.iw.dao.impl;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class DispositivoDaoImplTest {
 	public void testConsultarTodos() {
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
 		try{
-			dispositivos = dispositivoDao.consultarDisponibles();
+			dispositivos = dispositivoDao.consultarTodos();
 			Assert.assertTrue(dispositivos.size() >0);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -98,23 +99,40 @@ public class DispositivoDaoImplTest {
 	}
 
 	//@Test
-	public void testConsultarDisponibles() {
-		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
-		try{
-			dispositivos = dispositivoDao.consultarDisponibles();
-			Assert.assertTrue(dispositivos.size()>0);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
-
-	//@Test
 	public void testConsultarUno() {
 		Dispositivo dispositivo ;
 		String referencia = "001";
 		try{
 			dispositivo = dispositivoDao.consultarUno(referencia);
 			Assert.assertTrue(dispositivo != null);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void testConsultarDispositivoDisponible() {
+		Boolean disponible;
+		Date fechaInicio = new Date();
+		Date fechaFin = new Date();
+		String referencia = "001";
+		try{
+			disponible = dispositivoDao.consultarDispositivoDisponible(fechaInicio, fechaFin, referencia);
+			Assert.assertTrue(disponible);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testConsultarDisponibles() {
+		List<String> dispositivos = new ArrayList<String>();
+		Date fechaInicio = new Date();
+		Date fechaFin = new Date();
+
+		try{
+			dispositivos = dispositivoDao.consultarDisponibles(fechaInicio, fechaFin);
+			System.out.println(dispositivos.get(1));
+			Assert.assertTrue(dispositivos.size()>0);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

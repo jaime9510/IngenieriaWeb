@@ -1,4 +1,4 @@
-package co.edu.udea.iw.bl;
+package co.edu.udea.iw.bl.impl;
 
 import static org.junit.Assert.*;
 
@@ -13,11 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import co.edu.udea.iw.bl.TipoBL;
 import co.edu.udea.iw.dto.Tipo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:SpringConf.xml")
-public class TipoBLTest {
+public class TipoBLTestImpl {
 	
 	@Autowired
 	TipoBL tipoBL;
