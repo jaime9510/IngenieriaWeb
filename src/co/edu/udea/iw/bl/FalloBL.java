@@ -42,5 +42,7 @@ public interface FalloBL {
 	 * @throws MyException
 	 */
 	public List<Fallo> consultarDanosSinSolucion() throws MyException;
+	
+	public Fallo consultarUno(int id) throws MyException;
 
 }

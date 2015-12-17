@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 27-nov-2015 22:37:30 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-	<class name="co.edu.udea.iw.dto.Prestamo" table="PRESTAMO">
+	<class name="co.edu.udea.iw.dto.Prestamo" table="prestamo">
 		<id name="idPrestamo" type="int">
 			<column name="IDPRESTAMO" />
 			<generator class="increment" />

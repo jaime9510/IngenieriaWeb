@@ -67,5 +67,16 @@ public class FalloBLImplTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void TestConsultarUno(){
+		int id = 1;
+		Fallo fallo = new Fallo();
+		try{
+		falloBL.consultarUno(id);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 
 }

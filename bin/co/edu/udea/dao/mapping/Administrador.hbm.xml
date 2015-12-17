@@ -5,7 +5,7 @@
 <hibernate-mapping>
 <!-- Especifica el dto al que estará asociado el archivo hbm.xml y el nombre de la  -->
 <!-- tabla en la que se mapearán los datos en este caso "Administrador"-->
-    <class name="co.edu.udea.iw.dto.Administrador" table="ADMINISTRADOR">
+    <class name="co.edu.udea.iw.dto.Administrador" table="administrador">
    
         <id name="email" type="java.lang.String">
             <column name="EMAIL" length="45"/>

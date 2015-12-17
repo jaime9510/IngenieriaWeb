@@ -114,4 +114,18 @@ public class FalloBLImpl implements FalloBL {
 		return fallos;
 	}
 
+	@Override
+	public Fallo consultarUno(int id) throws MyException {
+		Fallo fallo = new Fallo();
+		if(id== 0){
+			throw new MyException("Ingrese un identificador valido");
+		}
+		fallo = falloDao.consultarUno(id);
+		if(fallo == null){
+			throw new MyException("No existe un fallo con dicho identificador");
+		}
+		return fallo;
+	}
+	
+
 }

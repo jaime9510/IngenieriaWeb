@@ -35,7 +35,7 @@ public class DispositivoDaoImplTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testCrear() {
 		Dispositivo dispositivo = new Dispositivo();
 		dispositivo.setReferencia("001");
@@ -131,7 +131,6 @@ public class DispositivoDaoImplTest {
 
 		try{
 			dispositivos = dispositivoDao.consultarDisponibles(fechaInicio, fechaFin);
-			System.out.println(dispositivos.get(1));
 			Assert.assertTrue(dispositivos.size()>0);
 		}catch(Exception e){
 			e.printStackTrace();

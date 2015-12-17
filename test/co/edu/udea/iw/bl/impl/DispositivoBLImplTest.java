@@ -3,6 +3,7 @@ package co.edu.udea.iw.bl.impl;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -92,6 +93,18 @@ public class DispositivoBLImplTest {
 			dispositivo = dispositivoBL.consultarUno(referencia);
 			Assert.assertTrue(dispositivo != null);
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void testMostrarDispositivosDisponibles(){
+		Date fechaInicio = new Date(2015,12,18,15,00);
+		Date fechaFin = new Date(2015,12,18,16,00);
+		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
+		try{
+			dispositivos = dispositivoBL.mostrarDispositivosDisponibles(fechaInicio, fechaFin);
+			assertTrue(dispositivos.size()>0);
+		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}

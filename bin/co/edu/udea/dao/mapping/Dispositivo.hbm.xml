@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 27-nov-2015 22:15:11 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="co.edu.udea.iw.dto.Dispositivo" table="DISPOSITIVO">
+    <class name="co.edu.udea.iw.dto.Dispositivo" table="dispositivo">
         <id name="referencia" type="java.lang.String">
             <column name="REFERENCIA" length="30" />
             <generator class="assigned" />

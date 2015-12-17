@@ -1,5 +1,6 @@
 package co.edu.udea.iw.bl;
 
+import java.util.Date;
 import java.util.List;
 
 import co.edu.udea.iw.dto.Dispositivo;
@@ -60,4 +61,5 @@ public interface DispositivoBL {
 	 * @throws MyException
 	 */
 	public Dispositivo consultarUno(String referencia) throws MyException;
+	public List<Dispositivo> mostrarDispositivosDisponibles(Date fechaInicio, Date fechaFin);
 }

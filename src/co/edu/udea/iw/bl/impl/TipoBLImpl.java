@@ -52,5 +52,6 @@ public class TipoBLImpl implements TipoBL{
 		tipos = tipoDao.consultarTodos();
 		return tipos;
 	}
+	
 
 }

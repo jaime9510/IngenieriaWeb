@@ -1,6 +1,7 @@
 package co.edu.udea.iw.bl.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -180,6 +181,20 @@ public class DispositivoBLImpl implements DispositivoBL {
 		}
 		dispositivo = dispositivoDao.consultarUno(referencia);
 		return dispositivo;
+	}
+
+	@Override
+	public List<Dispositivo> mostrarDispositivosDisponibles(Date fechaInicio, Date fechaFin) {
+		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
+		try{
+		for(String referencia : dispositivoDao.consultarDisponibles(fechaInicio, fechaFin)){
+			Dispositivo dispositivo = dispositivoDao.consultarUno(referencia);
+			dispositivos.add(dispositivo);
+		}
+		}catch(MyException e){
+			e.getMessage();
+		}
+		return dispositivos;
 	}
 
 }
