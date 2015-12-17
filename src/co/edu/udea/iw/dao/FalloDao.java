@@ -7,7 +7,7 @@ import co.edu.udea.iw.dto.Fallo;
 import co.edu.udea.iw.exception.MyException;
 
 /**
- * Esta interaz contiene la definición de los métodos correspondientes a las
+ * Esta interfaz contiene la definición de los métodos correspondientes a las
  * funciones que se podrán hacer para un Fallo de un dispositivo en relación con
  * el acceso a la base de datos
  * 
@@ -57,7 +57,7 @@ public interface FalloDao {
 
 	/**
 	 * Definición del método con el que se consultarán los Fallos que estén
-	 * reportados en la BD para un dispositvo enviado como parámetro
+	 * reportados en la BD para un dispositivo enviado como parámetro
 	 * 
 	 * @param dispositivo
 	 *            Objeto del tipo Dispositivo con el que se realizará la

@@ -4,12 +4,11 @@ import co.edu.udea.iw.exception.MyException;
 
 /**
  * Esta interfaz contiene todas las funciones que permiten definir las reglas
- * del negocio para el usuario administrador
+ * del negocio para el rol administrador
  * 
  * @author Carolina Isaza
- * @author Jaime Londo�o
- * @author Sebasti�n Jim�nez
- * 
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
  *
  */
 public interface AdministradorBL {
