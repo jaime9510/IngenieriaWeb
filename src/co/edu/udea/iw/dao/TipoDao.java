@@ -6,56 +6,66 @@ import co.edu.udea.iw.dto.Tipo;
 import co.edu.udea.iw.exception.MyException;
 
 /**
- * Esta interaz contiene la definición de los métodos correspondientes a las
- * funciones que se podrán hacer para un Tipo de dispositivo en relación con el
- * acceso a la base de datos
+ * Esta interfaz contiene la definicion de los metodos correspondientes a las
+ * funciones que se podran hacer para un Tipo de Dispositivo en relacion con el
+ * acceso a la base de datos.
  * 
  * @author Carolina Isaza
- * @author Jaime Londoño
- * @author Sebastián Jiménez
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
  *
  */
 public interface TipoDao {
 
 	/**
-	 * Definición del método con el que se consultarán todos los Tipos de
-	 * dispositivos registrados en la base de datos
+	 * Consulta todos los Tipos de dispositivos registrados en la base de datos.
 	 * 
-	 * @return Lista de objetos de tipo Tipo
+	 * @return Lista de objetos de tipo Tipo.
 	 * @throws MyException
-	 *             Si la operación con la base de datos falla y no se puede
-	 *             realizar la consulta
+	 *             Si la operacion con la base de datos falla y no se puede
+	 *             realizar la consulta.
 	 */
 	public List<Tipo> consultarTodos() throws MyException;
 
 	/**
-	 * Definición del método encargado de almacenar en la BD los datos
-	 * correspondientes a un nuevo Tipo de dispositivo en el laboratorio
+	 * Almacena en la base de datos los datos correspondientes a un nuevo Tipo
+	 * de dispositivo.
 	 * 
 	 * @param tipo
-	 *            Objeto del tipo Tipo con los datos que serán almacenados en la
-	 *            BD
+	 *            Objeto Tipo con los datos que serán almacenados en la base de
+	 *            datos.
 	 * @throws MyException
-	 *             Si la operación con la base de datos falla y no puede
-	 *             realizarse la inserción
+	 *             Si la operacion con la base de datos falla y no puede
+	 *             realizarse la insercion.
 	 */
 	public void crear(Tipo tipo) throws MyException;
 
 	/**
-	 * Definición del método con el que se consultará desde la BD el
-	 * administrador con el id de Tipo enviado como parámetro
+	 * Consulta desde la base de datos el Tipo cuyo id es enviado como
+	 * parametro.
 	 * 
 	 * @param id
-	 *            Entero que permite la identificación de un tipo de
-	 *            dispositivo. Esta identificación es definida previamente por
-	 *            el laboratorio
-	 * @return Objeto de tipo Tipo con los datos del tipo al que le pertenece el
-	 *         id consultado.
+	 *            Entero que permite la identificacion de un tipo de
+	 *            dispositivo.
+	 * @return Objeto Tipo con los datos del tipo al que le pertenece el id
+	 *         consultado.
 	 * @throws MyException
-	 *             Si la operación con la base de datos falla y no puede
-	 *             realizarse la consulta
+	 *             Si la operacion con la base de datos falla y no puede
+	 *             realizarse la consulta.
 	 */
 	public Tipo consultarUno(int id) throws MyException;
-	
+
+	/**
+	 * Consulta en la base de datos el tipo de dispositivo cuyo nombre es
+	 * enviado como parametro.
+	 * 
+	 * @param nombre
+	 *            Nombre del tipo de dispositivo que quiere encontrarse.
+	 * @return Objeto Tipo con los datos del tipo de dispositivo cuyo nombre fue
+	 *         especificado.
+	 * @throws MyException
+	 *             Si la operacion con la base de datos falla y no puede
+	 *             realizarse la consulta.
+	 */
 	public Tipo consultarPorNombre(String nombre) throws MyException;
 }

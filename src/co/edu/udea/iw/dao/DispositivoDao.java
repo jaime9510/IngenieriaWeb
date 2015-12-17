@@ -20,8 +20,7 @@ import co.edu.udea.iw.exception.MyException;
 public interface DispositivoDao {
 
 	/**
-	 * Definicion del metodo con el que se consultaran todos los dispositivos
-	 * registrados en la base de datos.
+	 * Consulta todos los dispositivos registrados en la base de datos.
 	 * 
 	 * @return Lista de objetos del tipo dispositivo.
 	 * @throws MyException
@@ -31,8 +30,8 @@ public interface DispositivoDao {
 	public List<Dispositivo> consultarTodos() throws MyException;
 
 	/**
-	 * Definicion del metodo encargado de almacenar en la BD los datos
-	 * correspondientes a un nuevo dispositivo.
+	 * Almacena en la base de datos la informacion correspondiente a un nuevo
+	 * dispositivo.
 	 * 
 	 * @param dispositivo
 	 *            Objeto del tipo Dispositivo con todos los datos definidos para
@@ -44,8 +43,8 @@ public interface DispositivoDao {
 	public void crear(Dispositivo dispositivo) throws MyException;
 
 	/**
-	 * Definicion del metodo encargado de realizar una actualizacion en la BD de
-	 * los datos del dispositivo, el email no podrá ser actualizado.
+	 * Actualiza en la base de datos la informacion del dispositivo, el email no
+	 * podra ser actualizado.
 	 * 
 	 * @param dispositivo
 	 *            Objeto de la clase Dispositivo con todos los datos definidos
@@ -57,8 +56,7 @@ public interface DispositivoDao {
 	public void actualizar(Dispositivo dispositivo) throws MyException;
 
 	/**
-	 * Definicion del metodo encargado de eliminar de la BD el dispositivo
-	 * enviado como parametro.
+	 * Elimina de la base de datos el dispositivo enviado como parametro.
 	 * 
 	 * @param dispositivo
 	 *            Objeto de la clase Dispositivo con todos los datos definidos
@@ -70,8 +68,8 @@ public interface DispositivoDao {
 	public void eliminar(Dispositivo dispositivo) throws MyException;
 
 	/**
-	 * Definicion del metodo con el que se consultaran los Dispositivos que
-	 * tengan asignado el tipo enviado como parametro.
+	 * Consulta todos los Dispositivos que tengan asignado el tipo enviado como
+	 * parametro.
 	 * 
 	 * @param tipo
 	 *            Objeto de la clase Tipo.
@@ -83,8 +81,8 @@ public interface DispositivoDao {
 	public List<Dispositivo> consultarPorTipo(Tipo tipo) throws MyException;
 
 	/**
-	 * Definicion del metodo con el que se consultara desde la BD el dispositivo
-	 * con la referencia enviada como parametro.
+	 * Consulta desde la base de datos el dispositivo con la referencia enviada
+	 * como parametro.
 	 * 
 	 * @param referencia
 	 *            String con la referencia asignada a un dispositivo especifico.
@@ -96,8 +94,40 @@ public interface DispositivoDao {
 	 */
 	public Dispositivo consultarUno(String referencia) throws MyException;
 
+	/**
+	 * Consulta todos los dispositivos disponibles para prestamo en un rango de
+	 * fechas especificado.
+	 * 
+	 * @param fechaInicio
+	 *            Fecha inicial para la que se desea saber los dispositivos
+	 *            disponibles.
+	 * @param fechaFin
+	 *            Fecha final del rango para saber dispositivos disponibles.
+	 * @return Lista con todos los dispositivos encontrados que estan
+	 *         disponibles para prestamo.
+	 * @throws MyException
+	 *             Lanza excepcion si hay un problema en la conexion con a base
+	 *             de datos o si la consulta no se ha realizado correctamente.
+	 */
 	public List<String> consultarDisponibles(Date fechaInicio, Date fechaFin) throws MyException;
 
+	/**
+	 * Consulta si un dispositivo en especifico esta disponible para prestamo en
+	 * un rango de fechas determinado.
+	 * 
+	 * @param fechaInicio
+	 *            Fecha inicial del rango en que se desea saber si hay
+	 *            disponibilidad del dispositivo.
+	 * @param fechaFin
+	 *            Fecha final del rango en que se desea saber si hay
+	 *            disponibilidad del dispositivo.
+	 * @param referencia
+	 *            Referencia del dispositivo del que se quiere consultar la
+	 *            disponibilidad.
+	 * @return True, si el dispositivo esta disponible en el rango de fechas.
+	 *         False, de lo contrario.
+	 * @throws MyException
+	 */
 	public Boolean consultarDispositivoDisponible(Date fechaInicio, Date fechaFin, String referencia)
 			throws MyException;
 }
