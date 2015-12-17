@@ -152,10 +152,10 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 							+ "Where disp.referencia ='"+ referencia +"' and disp.referencia = pd.referencia and "
 							+ "pd.prestamo = pres.idPrestamo and pres.fechaInicio not between '" + fechaInicioString
 							+ "'and '" + fechaFinString + "' and pres.fechaFin not between '" + fechaInicioString
-							+ "' and '"+fechaFinString+"'and pres.estado = '1' and disp.disponible = '1'");
+							+ "' and '"+fechaFinString+"'and pres.estado = '0' or pres.estado = '2' and disp.disponible = '1'");
 
 			String dispositivo =  (String) query.uniqueResult();
-			if(dispositivo == null ||" ".equals(dispositivo)){
+			if(dispositivo == null){
 				return false;
 			}
 		} catch (HibernateException e) {
@@ -179,7 +179,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 							+ "Where disp.referencia = pd.referencia and "
 							+ "pd.prestamo = pres.idPrestamo and pres.fechaInicio not between '" + fechaInicioString
 							+ "'and '" + fechaFinString + "' and pres.fechaFin not between '" + fechaInicioString
-							+ "' and '"+fechaFinString+"'and pres.estado = '1' and disp.disponible = '1'");
+							+ "' and '"+fechaFinString+"'and pres.estado = '0' or pres.estado = '2' and disp.disponible = '1'");
 			dispositivos = query.list();
 			//dispositivo = (Dispositivo) query.uniqueResult();
 		} catch (HibernateException e) {
