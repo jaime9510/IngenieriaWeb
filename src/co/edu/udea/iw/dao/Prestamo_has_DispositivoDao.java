@@ -18,28 +18,26 @@ import co.edu.udea.iw.exception.MyException;
 public interface Prestamo_has_DispositivoDao {
 
 	/**
-	 * Definición del método con el que se consultarán todos los dispositivos
-	 * prestados y su respectiva orden de préstamo registrados en la base de
-	 * datos
+	 * Consulta todos los dispositivos prestados, y su respectiva orden de
+	 * prestamo, registrados en la base de datos
 	 * 
-	 * @return Lista de objetos de tipo Prestamo_has_Dispositivo
+	 * @return Lista de objetos de tipo Prestamo_has_Dispositivo.
 	 * @throws MyException
-	 *             Si la operación con la base de datos falla y no se puede
-	 *             realizar la consulta
+	 *             Si la operacion con la base de datos falla y no se puede
+	 *             realizar la consulta.
 	 */
 	public List<Prestamo_has_Dispositivo> consultarTodos() throws MyException;
 
 	/**
-	 * Definición del método encargado de almacenar en la BD los datos
-	 * correspondientes a un nuevo dispositivo prestado y su respectiva orden de
-	 * préstamo
+	 * Almacena en la base de datos la informacion correspondiente a un nuevo
+	 * dispositivo recien prestado y su respectiva orden de prestamo.
 	 * 
 	 * @param pd
 	 *            Objeto del tipo Prestamo_has_Dispositivo con todos los datos
-	 *            definidos para este objeto
+	 *            definidos para este objeto.
 	 * @throws MyException
-	 *             Si la operación con la base de datos falla y no puede
-	 *             realizarse la inserción
+	 *             Si la operacion con la base de datos falla y no puede
+	 *             realizarse la insercion.
 	 */
 	public void crear(Prestamo_has_Dispositivo pd) throws MyException;
 
