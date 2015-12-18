@@ -3,23 +3,24 @@ package co.edu.udea.iw.dto;
 import java.io.Serializable;
 
 /**
- * Esta clase contiene los atributos de un Dispositivo del Laboratiorio
- * de Neurociencias y sus respectivos métodos de acceso (getters & setters)
- * @author Carolina
- * @author Sebastián
- * @author Jaime
+ * Esta clase contiene los atributos de un Dispositivo del Laboratorio de
+ * Neurociencias y sus respectivos metodos de acceso (getters & setters).
+ * 
+ * @author Carolina Isaza
+ * @author Sebastian Jimenez
+ * @author Jaime Londono
  *
  */
-public class Dispositivo implements Serializable{
+public class Dispositivo implements Serializable {
 
-	//Atributos del Dispositivo
-	
+	// Atributos del Dispositivo
+
 	/**
 	 * Tipo de dispositivo
 	 */
 	private Tipo tipo;
 	/**
-	 * Referencia única del dispositivo
+	 * Referencia unica del dispositivo
 	 */
 	private String referencia;
 	/**
@@ -27,21 +28,20 @@ public class Dispositivo implements Serializable{
 	 */
 	private String nombre;
 	/**
-	 * Atributo que indica si el dispositivo está disponible para 
-	 * su préstamo
+	 * Atributo que indica si el dispositivo esta disponible para su prestamo
 	 */
 	private boolean disponible;
 	/**
-	 * Descripción del dispositivo
+	 * Descripcion y caracteristicas del dispositivo
 	 */
 	private String descripcion;
 	/**
-	 * Foto del dispositivo
+	 * Enlace a foto del dispositivo
 	 */
 	private String foto;
-	
-	//Métodos Getters y Setters
-	
+
+	// Metodos Getters y Setters
+
 	public String getFoto() {
 		return foto;
 	}
@@ -51,40 +51,99 @@ public class Dispositivo implements Serializable{
 	}
 
 	/**
-	 * Método para acceder al tipo al que pernetece el Dispositivo 
+	 * Metodo para acceder al tipo al que pernetece el Dispositivo
+	 * 
 	 * @return tipo Objeto de la clase tipo
 	 */
 	public Tipo getTipo() {
 		return tipo;
 	}
-	
+
+	/**
+	 * Metodo para asignarle un tipo al Dispositivo
+	 * 
+	 * @param tipo
+	 *            Objeto de clase tipo que se quiere asignar
+	 */
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
+
+	/**
+	 * Metodo para obtener la referencia del Dispositivo
+	 * 
+	 * @return String con la referencia del dispositivo
+	 */
 	public String getReferencia() {
 		return referencia;
 	}
+
+	/**
+	 * Metodo para asignarle una referencia al dispositivo
+	 * 
+	 * @param referencia
+	 *            String con la referencia a asignar
+	 */
 	public void setReferencia(String referencia) {
 		this.referencia = referencia;
 	}
+
+	/**
+	 * Metodo para obtener el nombre del dispositivo
+	 * 
+	 * @return String con el nombre del dispositivo
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+
+	/**
+	 * Metodo para asignar un nombre al dispositivo
+	 * 
+	 * @param nombre
+	 *            String con el nombre que se quiere asignar
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	/**
+	 * Metodo para saber si el dispositivo esta disponible para prestamo
+	 * 
+	 * @return True si esta disponible para prestamo. False, de lo contrario
+	 */
 	public boolean isDisponible() {
 		return disponible;
 	}
+
+	/**
+	 * Metodo para asignar la disponibilidad o no de un dispositivo para
+	 * prestamo
+	 * 
+	 * @param disponible
+	 *            True para asignar disponible.
+	 */
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
 	}
+
+	/**
+	 * Metodo para obtener la descripcion y caracteristicas del dispositivo
+	 * 
+	 * @return String con la descripcion del dispositivo
+	 */
 	public String getDescripcion() {
 		return descripcion;
 	}
+
+	/**
+	 * Metodo para asignar una descripcion al dispositivo
+	 * 
+	 * @param descripcion
+	 *            String con la descripcion que se desea asignar
+	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
+
 }

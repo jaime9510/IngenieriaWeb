@@ -3,12 +3,12 @@ package co.edu.udea.iw.dto;
 import java.io.Serializable;
 
 /**
- * Esta clase contiene los atributos de un Administrador del Laboratiorio de
- * Neurociencias y sus respectivos métodos de acceso (getters & setters)
+ * Esta clase contiene los atributos de un Administrador del Laboratorio de
+ * Neurociencias y sus respectivos metodos de acceso (getters & setters).
  * 
- * @author Carolina
- * @author Sebastián
- * @author Jaime
+ * @author Carolina Isaza
+ * @author Sebastian Jimenez
+ * @author Jaime Londono
  *
  */
 public class Administrador implements Serializable {
@@ -23,18 +23,18 @@ public class Administrador implements Serializable {
 	 */
 	private String apellidos;
 	/**
-	 * Contraseña cifrada del administrador
+	 * Contrasena del administrador
 	 */
 	private String contrasena;
 	/**
-	 * Correo electrónico del administrador
+	 * Correo electronico del administrador
 	 */
 	private String email;
 
-	// Métodos Getters y Setters
+	// Metodos Getters y Setters
 
 	/**
-	 * Método para acceder al nombre del administrador
+	 * Metodo para obtener el nombre del administrador
 	 * 
 	 * @return nombre del objeto administrador
 	 */
@@ -43,7 +43,7 @@ public class Administrador implements Serializable {
 	}
 
 	/**
-	 * Método para asignar un valor al atributo nombre
+	 * Metodo para asignar un valor al atributo nombre
 	 * 
 	 * @param nombre
 	 *            Nombre a asignar al objeto administrador
@@ -53,16 +53,16 @@ public class Administrador implements Serializable {
 	}
 
 	/**
-	 * Método para acceder al apellido del administrador
+	 * Metodo para obtener el apellido del administrador
 	 * 
-	 * @return apellido del objeto administrador existente
+	 * @return Apellido del objeto administrador existente
 	 */
 	public String getApellidos() {
 		return apellidos;
 	}
 
 	/**
-	 * Método para asignar un valor al atributo apellido
+	 * Metodo para asignar un valor al atributo apellido
 	 * 
 	 * @param apellido
 	 *            Apellido a asignar al objeto administrador
@@ -72,35 +72,35 @@ public class Administrador implements Serializable {
 	}
 
 	/**
-	 * Método para acceder a la contraseña del administrador
+	 * Metodo para obtener la contraseña del administrador
 	 * 
-	 * @return contrasena cifrada del objeto administrador
+	 * @return Contrasena cifrada del objeto administrador
 	 */
 	public String getContrasena() {
 		return contrasena;
 	}
 
 	/**
-	 * Método para asignar un valor al atributo contraseña
+	 * Metodo para asignar un valor al atributo contrasena
 	 * 
 	 * @param contrasena
-	 *            Contraseña cifrada que se asignará al administrador
+	 *            Contrasena cifrada que se asignara al administrador
 	 */
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
 
 	/**
-	 * Método para acceder al correo electrónico del administrador
+	 * Metodo para obtener el correo electronico del administrador
 	 * 
-	 * @return email asociado al objeto administrador
+	 * @return Email asociado al objeto administrador
 	 */
 	public String getEmail() {
 		return email;
 	}
 
 	/**
-	 * Método para asignar un valor al atributo email
+	 * Metodo para asignar un valor al atributo email
 	 * 
 	 * @param email
 	 *            Email a asignar al administrador
