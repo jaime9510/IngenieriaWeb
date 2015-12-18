@@ -21,7 +21,7 @@ public class AdministradorBLImpl implements AdministradorBL {
 
 	/**
 	 * Objeto de la capa Dao definido para un administrador, este objeto sera
-	 * inyectado desde el archivo de configuración de Spring.
+	 * inyectado desde el archivo de configuracion de Spring.
 	 */
 	AdministradorDao administradorDao;
 

@@ -81,3 +81,19 @@
 2015-12-17 16:46:06 INFO  GenericApplicationContext:862 - Closing org.springframework.context.support.GenericApplicationContext@56f4468b: startup date [Thu Dec 17 16:46:04 COT 2015]; root of context hierarchy
 2015-12-17 16:46:06 INFO  LocalSessionFactoryBean:225 - Closing Hibernate SessionFactory
 2015-12-17 16:46:06 INFO  SessionFactoryImpl:927 - closing
+2015-12-18 10:58:02 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.administrador' doesn't exist
+2015-12-18 10:58:02 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.administrador' doesn't exist
+2015-12-18 10:58:02 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.administrador' doesn't exist
+2015-12-18 11:08:59 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.administrador' doesn't exist
+2015-12-18 11:08:59 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.administrador' doesn't exist
+2015-12-18 11:08:59 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.administrador' doesn't exist
+2015-12-18 11:11:27 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.dispositivo' doesn't exist
+2015-12-18 11:11:27 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.dispositivo' doesn't exist
+2015-12-18 11:12:54 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.Prestamo_has_dispositivo' doesn't exist
+2015-12-18 11:12:54 ERROR JDBCExceptionReporter:234 - Table 'neurociencias.Prestamo_has_dispositivo' doesn't exist
+2015-12-18 11:14:15 ERROR JDBCExceptionReporter:234 - Cannot add or update a child row: a foreign key constraint fails (`neurociencias`.`Prestamo_has_Dispositivo`, CONSTRAINT `fk_Prestamo_has_Dispositivo_Prestamo1` FOREIGN KEY (`prestamo`) REFERENCES `Prestamo` (`idPrestamo`) ON DELETE CASCADE ON UPDATE CASCADE)
+2015-12-18 11:15:04 ERROR JDBCExceptionReporter:234 - Cannot add or update a child row: a foreign key constraint fails (`neurociencias`.`Prestamo_has_Dispositivo`, CONSTRAINT `fk_Prestamo_has_Dispositivo_Dispositivo1` FOREIGN KEY (`referencia`) REFERENCES `Dispositivo` (`referencia`) ON DELETE CASCADE ON UPDATE)
+2015-12-18 11:15:37 ERROR JDBCExceptionReporter:234 - Cannot add or update a child row: a foreign key constraint fails (`neurociencias`.`Prestamo_has_Dispositivo`, CONSTRAINT `fk_Prestamo_has_Dispositivo_Dispositivo1` FOREIGN KEY (`referencia`) REFERENCES `Dispositivo` (`referencia`) ON DELETE CASCADE ON UPDATE)
+2015-12-18 12:18:57 ERROR PARSER:56 - line 1:8: unexpected token: *
+2015-12-18 12:25:39 ERROR JDBCExceptionReporter:234 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from Prestamo_has_Dispositivo as pd where pd.referencia = 'A0021R'' at line 1
+2015-12-18 12:32:51 ERROR JDBCExceptionReporter:234 - Unknown column 'A0021R' in 'where clause'

@@ -27,8 +27,8 @@ import co.edu.udea.iw.exception.MyException;
  * los datos de un Dispositivo en la BD
  * 
  * @author Carolina Isaza
- * @author Jaime Londoño
- * @author Sebastián Jiménez
+ * @author Jaime Londoï¿½o
+ * @author Sebastiï¿½n Jimï¿½nez
  *
  */
 public class DispositivoDaoImpl extends HibernateDaoSupport implements DispositivoDao {
@@ -37,7 +37,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 	public List<Dispositivo> consultarTodos() throws MyException {
 		// Crea la lista de dispositivos del tipo ArrayList
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -62,7 +62,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 
 	@Override
 	public void crear(Dispositivo dispositivo) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -92,7 +92,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 
 	@Override
 	public void actualizar(Dispositivo dispositivo) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -121,7 +121,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 
 	@Override
 	public void eliminar(Dispositivo dispositivo) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -131,7 +131,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 			// datos
 			Transaction tx = session.beginTransaction();
 			// Se envia al metodo de eliminar, correspondiente a session, el
-			// Objeto Dispositivo al que será eliminado fisicamente
+			// Objeto Dispositivo al que serï¿½ eliminado fisicamente
 			session.delete(dispositivo);
 			// Se realiza el commit en la base de datos para que persistan los
 			// objetos
@@ -148,7 +148,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 	@Override
 	public List<Dispositivo> consultarPorTipo(Tipo tipo) throws MyException {
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -176,7 +176,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 	@Override
 	public Dispositivo consultarUno(String referencia) throws MyException {
 		Dispositivo dispositivo;
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -205,7 +205,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 	@Override
 	public Boolean consultarDispositivoDisponible(Date fechaInicio, Date fechaFin, String referencia)
 			throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		// Se hace la conversion del tipo Date a String
@@ -217,7 +217,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 			// Se realiza una consulta en lenguaje SQL en la que se seleccionan
 			// la referencia del dispositivo disponible
 			Query query = (Query) session.createSQLQuery(
-					"SELECT distinct disp.referencia FROM dispositivo as disp, prestamo_has_dispositivo as pd, prestamo pres "
+					"SELECT distinct disp.referencia FROM Dispositivo as disp, Prestamo_has_Dispositivo as pd, Prestamo pres "
 							+ "Where disp.referencia ='" + referencia + "' and disp.referencia = pd.referencia and "
 							+ "pd.prestamo = pres.idPrestamo and pres.fechaInicio not between '" + fechaInicioString
 							+ "'and '" + fechaFinString + "' and pres.fechaFin not between '" + fechaInicioString
@@ -243,7 +243,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 	@Override
 	public List<String> consultarDisponibles(Date fechaInicio, Date fechaFin) throws MyException {
 		List<String> dispositivos = new ArrayList<String>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		// Se hace la conversion del tipo Date a String
@@ -256,7 +256,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 			// referencia de los dispositivos que esten disponibles para
 			// prestamo en las fechas indicadas
 			Query query = (Query) session.createSQLQuery(
-					"SELECT disp.referencia FROM dispositivo as disp, prestamo_has_dispositivo as pd, prestamo pres "
+					"SELECT disp.referencia FROM Dispositivo as disp, Prestamo_has_Dispositivo as pd, Prestamo pres "
 							+ "Where disp.referencia = pd.referencia and "
 							+ "pd.prestamo = pres.idPrestamo and pres.fechaInicio not between '" + fechaInicioString
 							+ "'and '" + fechaFinString + "' and pres.fechaFin not between '" + fechaInicioString

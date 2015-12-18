@@ -100,13 +100,13 @@ public class FalloBLImpl implements FalloBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (idFallo == 0) {
-			throw new MyException("Ingrese un identificador de fallo válido");
+			throw new MyException("Ingrese un identificador de fallo valido");
 		}
 		if (error == null || "".equals(error)) {
-			throw new MyException("El campo de error no puede ser nulo o vacío");
+			throw new MyException("El campo de error no puede ser nulo o vacio");
 		}
 		if (referenciaDispositivo == null || "".equals(referenciaDispositivo)) {
-			throw new MyException("La referencia no es válida");
+			throw new MyException("La referencia no es valida");
 		}
 		// Verifica que el dispositivo con la referencia especificada exista
 		Dispositivo dispositivo = dispositivoDao.consultarUno(referenciaDispositivo);
@@ -136,7 +136,7 @@ public class FalloBLImpl implements FalloBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (idFallo == 0) {
-			throw new MyException("Ingrese un identificador de fallo válido");
+			throw new MyException("Ingrese un identificador de fallo valido");
 		}
 		// Verifica que el fallo con el identificador especificado exista
 		fallo = falloDao.consultarUno(idFallo);
@@ -159,7 +159,7 @@ public class FalloBLImpl implements FalloBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (referenciaDispositivo == null || "".equals(referenciaDispositivo)) {
-			throw new MyException("Ingrese una referencia válida");
+			throw new MyException("Ingrese una referencia valida");
 		}
 		// Verifica que el dispositivo exista en la base de datos
 		dispositivo = dispositivoDao.consultarUno(referenciaDispositivo);

@@ -2,6 +2,7 @@ package co.edu.udea.iw.dao;
 
 import java.util.List;
 
+import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Prestamo_has_Dispositivo;
 import co.edu.udea.iw.exception.MyException;
 
@@ -40,5 +41,22 @@ public interface Prestamo_has_DispositivoDao {
 	 *             realizarse la insercion.
 	 */
 	public void crear(Prestamo_has_Dispositivo pd) throws MyException;
+
+	/**
+	 * Verifica en la base de datos si el dispositivo ha sido prestado alguna
+	 * vez
+	 * 
+	 * @param dispositivo
+	 *            Objeto del tipo Dispositivo con todos los datos definidos para
+	 *            este objeto
+	 * @return true si el dispositivo ha sido prestado de lo contrario retorna
+	 *         falso
+	 * @throws MyException
+	 *             Si la operacion con la base de datos falla y no puede
+	 *             realizarse la consulta.
+	 */
+
+	public boolean dispositivoPrestado(Dispositivo dispositivo)
+			throws MyException;
 
 }

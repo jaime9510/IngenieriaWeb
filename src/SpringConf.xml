@@ -73,4 +73,10 @@
 	<bean id="TipoBL" class="co.edu.udea.iw.bl.impl.TipoBLImpl">
 		<property name="tipoDao" ref="TipoDao"></property>
 	</bean>
+	<bean id="PrestamoBL" class="co.edu.udea.iw.bl.impl.PrestamoBLImpl">
+		<property name="administradorDao" ref="AdministradorDao"></property>
+		<property name="prestamo_has_dispositivoDao" ref="Prestamo_has_DispositoDao"></property>
+		<property name="prestamoDao" ref="PrestamoDao"></property>
+		<property name="dispositivoDao" ref="DispositivoDao"></property>
+	</bean>
 </beans>

@@ -66,26 +66,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `neurociencias`.`Prestamo`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `neurociencias`.`Prestamo` ;
-
-CREATE TABLE IF NOT EXISTS `neurociencias`.`Prestamo` (
-  `idPrestamo` INT NOT NULL AUTO_INCREMENT COMMENT '',
-  `nombreUsuario` VARCHAR(30) NOT NULL COMMENT '',
-  `cedulaUsuario` VARCHAR(20) NOT NULL COMMENT '',
-  `fechaInicio` DATETIME(6) NOT NULL COMMENT '',
-  `fechaFin` DATETIME(6) NOT NULL COMMENT '',
-  `administrador` VARCHAR(45) NOT NULL COMMENT '',
-  `estado` INT NOT NULL COMMENT '',
-  `correoUsuario` VARCHAR(45) NOT NULL COMMENT '',
-  `fechaEntrega` DATETIME(6) NULL COMMENT '',
-  PRIMARY KEY (`idPrestamo`)  COMMENT '',
-  INDEX `fk_Prestamo_Administrador1_idx` (`administrador` ASC)  COMMENT '',
-  CONSTRAINT `fk_Prestamo_Administrador1`
-    FOREIGN KEY (`administrador`)
-    REFERENCES `neurociencias`.`Administrador` (`email`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -132,6 +112,27 @@ CREATE TABLE IF NOT EXISTS `neurociencias`.`Fallo` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
+
+DROP TABLE IF EXISTS `neurociencias`.`Prestamo` ;
+
+CREATE TABLE IF NOT EXISTS `neurociencias`.`Prestamo` (
+  `idPrestamo` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `nombreUsuario` VARCHAR(30) NOT NULL COMMENT '',
+  `cedulaUsuario` VARCHAR(20) NOT NULL COMMENT '',
+  `fechaInicio` DATETIME(6) NOT NULL COMMENT '',
+  `fechaFin` DATETIME(6) NOT NULL COMMENT '',
+  `administrador` VARCHAR(45) NOT NULL COMMENT '',
+  `estado` INT NOT NULL COMMENT '',
+  `correoUsuario` VARCHAR(45) NOT NULL COMMENT '',
+  `fechaEntrega` DATETIME(6) NULL COMMENT '',
+  PRIMARY KEY (`idPrestamo`)  COMMENT '',
+  INDEX `fk_Prestamo_Administrador1_idx` (`administrador` ASC)  COMMENT '',
+  CONSTRAINT `fk_Prestamo_Administrador1`
+    FOREIGN KEY (`administrador`)
+    REFERENCES `neurociencias`.`Administrador` (`email`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

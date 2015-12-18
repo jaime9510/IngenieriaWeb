@@ -1,7 +1,9 @@
 package co.edu.udea.iw.bl.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import co.edu.udea.iw.bl.PrestamoBL;
@@ -111,7 +113,8 @@ public class PrestamoBLImpl implements PrestamoBL {
 	 *            Objeto del tipo Prestamo_has_DispositivoDao con todos los
 	 *            atributos correspondientes a la misma
 	 */
-	public void setPrestamo_has_dispositivoDao(Prestamo_has_DispositivoDao prestamo_has_dispositivoDao) {
+	public void setPrestamo_has_dispositivoDao(
+			Prestamo_has_DispositivoDao prestamo_has_dispositivoDao) {
 		this.prestamo_has_dispositivoDao = prestamo_has_dispositivoDao;
 	}
 
@@ -136,47 +139,75 @@ public class PrestamoBLImpl implements PrestamoBL {
 		this.dispositivoDao = dispositivoDao;
 	}
 
-	public void crear(String nombreUsuario, String cedulaUsuario, String correoUsuario, String correoAdmin,
-			Date fechaInicio, Date fechaFin, String[] dispositivos) throws MyException {
+	public void crear(String nombreUsuario, String cedulaUsuario,
+			String correoUsuario, String correoAdmin, Date fechaInicio,
+			Date fechaFin, String[] dispositivos) throws MyException {
 		// Se crea un objeto del tipo Prestamo
 		Prestamo prestamo = new Prestamo();
-		//// Verifica que los campos ingresados sean validos para las reglas de
+		Calendar calendarInicio = GregorianCalendar.getInstance(); // creates a
+																	// new
+																	// calendar
+																	// instance
+		Calendar calendarFin = GregorianCalendar.getInstance();
+		calendarInicio.setTime(fechaInicio); // assigns calendar to given date
+		calendarFin.setTime(fechaFin);
+		// // Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (nombreUsuario == null || "".equals(nombreUsuario)) {
 			throw new MyException("Ingrese un nombre de usuario valido");
 		}
 		if (cedulaUsuario == null || "".equals(cedulaUsuario)) {
-			throw new MyException("Ingrese una cédula de usuario valida");
+			throw new MyException("Ingrese una cedula de usuario valida");
 		}
 		if (correoAdmin == null || "".equals(correoAdmin)) {
 			throw new MyException("El correo del administrador no es valido");
 		}
-		if (fechaInicio == null || fechaInicio.getHours() < 8 || fechaInicio.getHours() > 18) {
+		if (fechaInicio == null || calendarInicio.get(Calendar.HOUR_OF_DAY) < 8
+				|| calendarInicio.get(Calendar.HOUR_OF_DAY) > 18) {
 			throw new MyException("Ingrese una fecha valida");
 		}
-		if (fechaFin == null || fechaFin.getHours() < 8 || fechaFin.getHours() > 18) {
+		if (fechaFin == null || calendarFin.get(Calendar.HOUR_OF_DAY) < 8
+				|| calendarFin.get(Calendar.HOUR_OF_DAY) > 18) {
 			throw new MyException("Ingrese una fecha de fin de prestamo valida");
 		}
 		if (dispositivos.length < 1) {
-			throw new MyException("Seleccione los dispositivos para el préstamo");
+			throw new MyException(
+					"Seleccione los dispositivos para el prestamo");
 		}
 		// Verifica que el administrador exista en la base de datos
-		Administrador administrador = administradorDao.consultarUno(correoAdmin);
+		Administrador administrador = administradorDao
+				.consultarUno(correoAdmin);
 		if (administrador == null) {
 			throw new MyException("El administrador no existe");
 		}
 		// Verifica que cada uno de los dispositivos seleccionados exista y este
 		// disponible para prestamo en el horario especificado
 		for (int i = 0; i < dispositivos.length; i++) {
-			Dispositivo dispositivo = dispositivoDao.consultarUno(dispositivos[i]);
+			System.out.println(dispositivos[i]);
+			Dispositivo dispositivo = dispositivoDao
+					.consultarUno(dispositivos[i]);
 			if (dispositivo == null) {
+				
 				throw new MyException("Uno de los dispositivos no existe");
 			}
-			Boolean disponible = dispositivoDao.consultarDispositivoDisponible(fechaInicio, fechaFin,
-					dispositivo.getReferencia());
-			if (disponible == false) {
-				throw new MyException(
-						"El dispositivo" + dispositivos[i] + " no está disponible para el prestamo en esta fecha");
+			Boolean prestado = prestamo_has_dispositivoDao
+					.dispositivoPrestado(dispositivo);
+			if (prestado == true) {
+				Boolean disponible = dispositivoDao
+						.consultarDispositivoDisponible(fechaInicio, fechaFin,
+								dispositivo.getReferencia());
+				if (disponible == false) {
+					throw new MyException(
+							"El dispositivo"
+									+ dispositivos[i]
+									+ " no esta disponible para el prestamo en esta fecha");
+				}
+			} else {
+				if (!dispositivo.isDisponible()) {
+					throw new MyException("El dispositivo "
+							+ dispositivo.getReferencia()
+							+ "no se encuentra disponible");
+				}
 			}
 		}
 		// Asigna los valores entregados al objeto prestamo, ademas asigna el
@@ -207,7 +238,8 @@ public class PrestamoBLImpl implements PrestamoBL {
 	}
 
 	@Override
-	public void modificar(int id, String correoAdministrador, int estado) throws MyException {
+	public void modificar(int id, String correoAdministrador, int estado)
+			throws MyException {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (id == 0) {
@@ -220,7 +252,8 @@ public class PrestamoBLImpl implements PrestamoBL {
 			throw new MyException("Ingrese un estado valido");
 		}
 		// Verifica que el administrador indicado existe
-		Administrador admin = administradorDao.consultarUno(correoAdministrador);
+		Administrador admin = administradorDao
+				.consultarUno(correoAdministrador);
 		if (admin == null) {
 			throw new MyException("El administrador no es valido");
 		}

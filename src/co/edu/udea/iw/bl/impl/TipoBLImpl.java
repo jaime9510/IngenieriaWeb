@@ -55,7 +55,7 @@ public class TipoBLImpl implements TipoBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (nombre == null || "".equals(nombre)) {
-			throw new MyException("El nombre no es válido");
+			throw new MyException("El nombre no es valido");
 		}
 		// Verifca que no exista un tipo con el mismo nombre
 		Tipo tipo = tipoDao.consultarPorNombre(nombre);
@@ -75,7 +75,7 @@ public class TipoBLImpl implements TipoBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (id == 0) {
-			throw new MyException("El número de identificación no es válido");
+			throw new MyException("El numero de identificacion no es valido");
 		}
 		// Verifica que exista un tipo con el id definido
 		tipo = tipoDao.consultarUno(id);

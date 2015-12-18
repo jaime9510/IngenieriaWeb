@@ -127,19 +127,19 @@ public class DispositivoBLImpl implements DispositivoBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (referencia == null || "".equals(referencia)) {
-			throw new MyException("La referencia no es válida");
+			throw new MyException("La referencia no es valida");
 		}
 		if (nombre == null || "".equals(nombre)) {
-			throw new MyException("El nombre no es válido");
+			throw new MyException("El nombre no es valido");
 		}
 		if (tipo == 0) {
-			throw new MyException("El tipo no es válido");
+			throw new MyException("El tipo no es valido");
 		}
 		if (foto == null || "".equals(foto)) {
-			throw new MyException("La url de la foto no es válida");
+			throw new MyException("La url de la foto no es valida");
 		}
 		if (emailAdministrador == null || "".equals(emailAdministrador)) {
-			throw new MyException("Ingrese un administrador válido");
+			throw new MyException("Ingrese un administrador valido");
 		}
 		// Verifica que el administrador que realiza la operacion esta
 		// registrado en la base de datos
@@ -155,7 +155,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 		// Verifica que exista el tipo de dispositivo especificado
 		Tipo tipoDispositivo = tipoDao.consultarUno(tipo);
 		if (tipoDispositivo == null) {
-			throw new MyException("Seleccione un tipo de dispositivo válido");
+			throw new MyException("Seleccione un tipo de dispositivo valido");
 		}
 
 		// Asigna al objeto de tipo Tipo el id de tipo especificado
@@ -180,19 +180,19 @@ public class DispositivoBLImpl implements DispositivoBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (referencia == null || "".equals(referencia)) {
-			throw new MyException("La referencia no es válida");
+			throw new MyException("La referencia no es valida");
 		}
 		if (nombre == null || "".equals(nombre)) {
-			throw new MyException("El nombre no es válido");
+			throw new MyException("El nombre no es valido");
 		}
 		if (tipo == 0) {
-			throw new MyException("El tipo no es válido");
+			throw new MyException("El tipo no es valido");
 		}
 		if (foto == null || "".equals(foto)) {
-			throw new MyException("La url de la foto no es válida");
+			throw new MyException("La url de la foto no es valida");
 		}
 		if (emailAdministrador == null || "".equals(emailAdministrador)) {
-			throw new MyException("Ingrese un administrador válido");
+			throw new MyException("Ingrese un administrador valido");
 		}
 		// Verifica que el administrador que realiza la operacion esta
 		// registrado en la base de datos
@@ -208,7 +208,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 		// Verifica que exista el tipo de dispositivo especificado
 		Tipo tipoDispositivo = tipoDao.consultarUno(tipo);
 		if (tipoDispositivo == null) {
-			throw new MyException("Seleccione un tipo de dispositivo válido");
+			throw new MyException("Seleccione un tipo de dispositivo valido");
 		}
 		// Envia al metodo crear de la clase DispositivoDao el nuevo dispositivo
 		tp.setId(tipo);
@@ -229,10 +229,10 @@ public class DispositivoBLImpl implements DispositivoBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (referencia == null || "".equals(referencia)) {
-			throw new MyException("La referencia no es válida");
+			throw new MyException("La referencia no es valida");
 		}
 		if (emailAdministrador == null || "".equals(emailAdministrador)) {
-			throw new MyException("Ingrese un administrador válido");
+			throw new MyException("Ingrese un administrador valido");
 		}
 		// Verifica que el administrador que realiza la operacion esta
 		// registrado en la base de datos
@@ -260,7 +260,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (idTipo == 0) {
-			throw new MyException("El tipo no es válido");
+			throw new MyException("El tipo no es valido");
 		}
 		// Verifica que si exista un dispositivo con la identificacion
 		// especificada
@@ -281,7 +281,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (referencia == null || "".equals(referencia)) {
-			throw new MyException("La referencia no es válida");
+			throw new MyException("La referencia no es valida");
 		}
 		// Almacena en el objeto dispositivo el objeto devuelto por el metodo
 		// consultar uno de la clase DispositivoDao

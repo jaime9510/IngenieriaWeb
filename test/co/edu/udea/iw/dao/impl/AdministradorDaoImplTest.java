@@ -34,8 +34,7 @@ public class AdministradorDaoImplTest {
 		}
 	}
 
-	@Test
-	public void testCrear() {
+	@Test	public void testCrear() {
 		Administrador admin= new Administrador();
 		admin.setEmail("carito9994@gmail.com");
 		admin.setNombre("Carolina");

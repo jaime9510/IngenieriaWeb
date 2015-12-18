@@ -5,13 +5,16 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import co.edu.udea.iw.dao.DispositivoDao;
 import co.edu.udea.iw.dao.Prestamo_has_DispositivoDao;
 import co.edu.udea.iw.dto.Administrador;
+import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Prestamo_has_Dispositivo;
 import co.edu.udea.iw.exception.MyException;
 
@@ -23,24 +26,26 @@ import co.edu.udea.iw.exception.MyException;
  * actualizaciones de los datos de un Prestamo_has_Dispositivo en la BD
  * 
  * @author Carolina Isaza
- * @author Jaime Londoño
- * @author Sebastián Jiménez
+ * @author Jaime Londoï¿½o
+ * @author Sebastiï¿½n Jimï¿½nez
  *
  */
-public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport implements Prestamo_has_DispositivoDao {
+public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport
+		implements Prestamo_has_DispositivoDao {
 
 	@Override
 	public List<Prestamo_has_Dispositivo> consultarTodos() throws MyException {
 		// Crea la lista de prestamo_has_dispositivos del tipo ArrayList
 		List<Prestamo_has_Dispositivo> pres_disp = new ArrayList<Prestamo_has_Dispositivo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
 			session = getSession();
 			// Se crea un objeto Criteria en la que se especifica una consulta
 			// en base a la clase Prestamo_has_Dispositivo
-			Criteria criteria = session.createCriteria(Prestamo_has_Dispositivo.class);
+			Criteria criteria = session
+					.createCriteria(Prestamo_has_Dispositivo.class);
 			// se almacena en la lista de pres_disp la lista devuelta por
 			// la consulta realizada en la linea anterior
 			pres_disp = criteria.list();
@@ -58,7 +63,7 @@ public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport implemen
 
 	@Override
 	public void crear(Prestamo_has_Dispositivo pd) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendrï¿½ una conexiï¿½n fï¿½sica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -83,6 +88,39 @@ public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport implemen
 			// session.close();
 		}
 
+	}
+
+	@Override
+	public boolean dispositivoPrestado(Dispositivo dispositivo)
+			throws MyException {
+
+		// Se crea una session con la que se obtendra una conexion fisica con la
+		// Base de datos
+		Session session = null;
+		try {
+			session = getSession();
+			Query query = session
+					.createSQLQuery("select pd.referencia from Prestamo_has_Dispositivo as pd where pd.referencia = '"
+							+ dispositivo.getReferencia()+"'");
+			// Se almacena en un string el resultado unico de la
+			// busqueda realizada
+			String referencia = (String) query.uniqueResult();
+			// Si la referencia es diferente de nula retorna true
+			if (referencia != null) {
+				System.out.println("_________________" + referencia);
+				return true;
+			}
+		} catch (HibernateException e) {
+			// Si se presenta un fallo en la conexion a la base de datos o en la
+			// consulta de la BD se lanza una excepcion propia
+			// (MyException) con el mensaje de error correspondiente
+			throw new MyException(e);
+		} finally {
+			// Se cierra la sesion
+			// session.close();
+		}
+
+		return false;
 	}
 
 }
