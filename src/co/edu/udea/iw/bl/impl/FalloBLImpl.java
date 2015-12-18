@@ -23,12 +23,12 @@ import co.edu.udea.iw.exception.MyException;
  */
 public class FalloBLImpl implements FalloBL {
 	/**
-	 * Objeto del tipo FalloDao, este objeto sera injectado desde el archivo de
+	 * Objeto del tipo FalloDao, este objeto sera inyectado desde el archivo de
 	 * configuracion de Spring
 	 */
 	FalloDao falloDao;
 	/**
-	 * Objeto del tipo DispositivoDao, este objeto sera injectado desde el
+	 * Objeto del tipo DispositivoDao, este objeto sera inyectado desde el
 	 * archivo de configuracion de Spring
 	 */
 	DispositivoDao dispositivoDao;
@@ -193,12 +193,12 @@ public class FalloBLImpl implements FalloBL {
 		if (id == 0) {
 			throw new MyException("Ingrese un identificador valido");
 		}
-		//Verifica que el fallo exista
+		// Verifica que el fallo exista
 		fallo = falloDao.consultarUno(id);
 		if (fallo == null) {
 			throw new MyException("No existe un fallo con dicho identificador");
 		}
-		//Retorna el fallo
+		// Retorna el fallo
 		return fallo;
 	}
 

@@ -29,22 +29,22 @@ import co.edu.udea.iw.exception.MyException;
 public class PrestamoBLImpl implements PrestamoBL {
 
 	/**
-	 * Objeto del tipo AdministradorDao, este objeto sera injectado desde el
+	 * Objeto del tipo AdministradorDao, este objeto sera inyectado desde el
 	 * archivo de configuracion de Spring
 	 */
 	AdministradorDao administradorDao;
 	/**
-	 * Objeto del tipo PrestamoDao, este objeto sera injectado desde el archivo
+	 * Objeto del tipo PrestamoDao, este objeto sera inyectado desde el archivo
 	 * de configuracion de Spring
 	 */
 	PrestamoDao prestamoDao;
 	/**
-	 * Objeto del tipo Prestamo_has_DispositivoDao, este objeto sera injectado
+	 * Objeto del tipo Prestamo_has_DispositivoDao, este objeto sera inyectado
 	 * desde el archivo de configuracion de Spring
 	 */
 	Prestamo_has_DispositivoDao prestamo_has_dispositivoDao;
 	/**
-	 * Objeto del tipo DispositivoDao, este objeto sera injectado desde el
+	 * Objeto del tipo DispositivoDao, este objeto sera inyectado desde el
 	 * archivo de configuracion de Spring
 	 */
 	DispositivoDao dispositivoDao;

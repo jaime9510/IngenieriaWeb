@@ -1,6 +1,5 @@
 package co.edu.udea.iw.bl.impl;
 
-
 import co.edu.udea.iw.bl.AdministradorBL;
 import co.edu.udea.iw.dao.AdministradorDao;
 import co.edu.udea.iw.dto.Administrador;
@@ -11,7 +10,7 @@ import co.edu.udea.iw.validations.Validaciones;
 /**
  * Clase en la que se implementan los metodos de la interface AdministradorBL.
  * En esta clase se implementaran todos los metodos correspondientes a la logica
- * del negocio definida para el Rol Administrador
+ * del negocio definida para el Rol Administrador.
  * 
  * @author Carolina Isaza
  * @author Jaime Londono
@@ -21,16 +20,16 @@ import co.edu.udea.iw.validations.Validaciones;
 public class AdministradorBLImpl implements AdministradorBL {
 
 	/**
-	 * Objeto de la capa Dao definido para un administrador, este objeto será
-	 * inyectado desde el archivo de configuración de Spring
+	 * Objeto de la capa Dao definido para un administrador, este objeto sera
+	 * inyectado desde el archivo de configuración de Spring.
 	 */
 	AdministradorDao administradorDao;
 
 	// Getters & Setters inyeccion de dependencias
 	/**
-	 * Metodo para acceder al objeto AdministradorDao
+	 * Metodo para acceder al objeto AdministradorDao.
 	 * 
-	 * @return administradorDao Objeto de la clase administradorDao
+	 * @return administradorDao Objeto de la clase administradorDao.
 	 */
 	public AdministradorDao getAdministradorDao() {
 		return administradorDao;
@@ -38,11 +37,11 @@ public class AdministradorBLImpl implements AdministradorBL {
 
 	/**
 	 * Metodo para asignar un valor de tipo administradorDao al objeto
-	 * administradorDao de esta clase
+	 * administradorDao de esta clase.
 	 * 
 	 * @param administradorDao
 	 *            Objeto del tipo administradorDao con los atributos definidos
-	 *            para la misma
+	 *            para la misma.
 	 */
 	public void setAdministradorDao(AdministradorDao administradorDao) {
 		this.administradorDao = administradorDao;
@@ -72,7 +71,7 @@ public class AdministradorBLImpl implements AdministradorBL {
 			// Si el administrador existe verifica que la contrasena ingresada
 			// coincida con la de la base de datos
 			if (cifrar.encrypt(pass).equals(admin.getContrasena())) {
-				// Devuelve true si la contraseña coincide
+				// Devuelve true si la contrasena coincide
 				return Boolean.TRUE;
 			} else {
 				return Boolean.FALSE;

@@ -21,7 +21,7 @@ import co.edu.udea.iw.exception.MyException;
 public class TipoBLImpl implements TipoBL {
 
 	/**
-	 * Objeto del tipo TipoDao, este objeto sera injectado desde el archivo de
+	 * Objeto del tipo TipoDao, este objeto sera inyectado desde el archivo de
 	 * configuracion de Spring
 	 */
 	TipoDao tipoDao;

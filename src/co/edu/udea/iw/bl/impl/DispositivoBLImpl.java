@@ -28,17 +28,17 @@ import co.edu.udea.iw.exception.MyException;
 public class DispositivoBLImpl implements DispositivoBL {
 
 	/**
-	 * Objeto del tipo DispositivoDao, este objeto sera injectado desde el
+	 * Objeto del tipo DispositivoDao, este objeto sera inyectado desde el
 	 * archivo de configuracion de Spring
 	 */
 	DispositivoDao dispositivoDao;
 	/**
-	 * Objeto del tipo AdministradorDao, este objeto sera injectado desde el
+	 * Objeto del tipo AdministradorDao, este objeto sera inyectado desde el
 	 * archivo de configuracion de Spring
 	 */
 	AdministradorDao administradorDao;
 	/**
-	 * Objeto del tipo TipoDao, este objeto sera injectado desde el archivo de
+	 * Objeto del tipo TipoDao, este objeto sera inyectado desde el archivo de
 	 * configuracion de Spring
 	 */
 	TipoDao tipoDao;
@@ -304,7 +304,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 		} catch (MyException e) {
 			e.getMessage();
 		}
-		//Retorna la lista de dispositivos disponibles
+		// Retorna la lista de dispositivos disponibles
 		return dispositivos;
 	}
 
