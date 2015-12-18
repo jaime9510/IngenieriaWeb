@@ -9,12 +9,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.AdministradorDao;
 import co.edu.udea.iw.dto.Administrador;
-import junit.framework.Assert;
 
 /**
  * En esta clase se definen casos de prueba para los metodos de la clase
@@ -45,7 +42,7 @@ public class AdministradorDaoImplTest {
 		List<Administrador> administradores = null;
 		try {
 			administradores = administradorDao.mostrarTodos();
-			Assert.assertTrue(administradores.size() > 0);
+			assertTrue(administradores.size() > 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -64,7 +61,7 @@ public class AdministradorDaoImplTest {
 		admin.setContrasena("123");
 		try {
 			administradorDao.crear(admin);
-			Assert.assertTrue(true);
+			assertTrue(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -82,7 +79,7 @@ public class AdministradorDaoImplTest {
 		admin.setContrasena("caro");
 		try {
 			administradorDao.actualizar(admin);
-			Assert.assertTrue(true);
+			assertTrue(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -98,7 +95,7 @@ public class AdministradorDaoImplTest {
 
 		try {
 			administradorDao.eliminar(admin);
-			Assert.assertTrue(true);
+			assertTrue(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -114,7 +111,7 @@ public class AdministradorDaoImplTest {
 		String email = "carito9994@gmail.com";
 		try {
 			admin = administradorDao.consultarUno(email);
-			Assert.assertTrue(admin != null);
+			assertTrue(admin != null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

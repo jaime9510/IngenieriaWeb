@@ -11,11 +11,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.bl.DispositivoBL;
 import co.edu.udea.iw.dto.Dispositivo;
-import junit.framework.Assert;
 
 /**
  * En esta clase se definen casos de prueba para los metodos de la clase 
@@ -44,7 +42,7 @@ public class DispositivoBLImplTest {
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
 		try {
 			dispositivos = dispositivoBL.consultarTodos();
-			Assert.assertTrue(dispositivos.size() > 0);
+			assertTrue(dispositivos.size() > 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -98,7 +96,7 @@ public class DispositivoBLImplTest {
 		int idTipo = 1;
 		try {
 			dispositivos = dispositivoBL.consultarPorTipo(idTipo);
-			Assert.assertTrue(dispositivos.size() > 0);
+			assertTrue(dispositivos.size() > 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -113,7 +111,7 @@ public class DispositivoBLImplTest {
 		String referencia = "A0021R";
 		try {
 			dispositivo = dispositivoBL.consultarUno(referencia);
-			Assert.assertTrue(dispositivo != null);
+			assertTrue(dispositivo != null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

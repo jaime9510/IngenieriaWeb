@@ -2,7 +2,6 @@ package co.edu.udea.iw.bl;
 
 import java.util.List;
 
-import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Fallo;
 import co.edu.udea.iw.exception.MyException;
 

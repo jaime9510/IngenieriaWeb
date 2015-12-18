@@ -1,7 +1,6 @@
 package co.edu.udea.iw.dao.impl;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.Prestamo_has_DispositivoDao;
 import co.edu.udea.iw.dto.Dispositivo;
@@ -48,6 +46,7 @@ public class Prestamo_has_DipositivoDaoImplTest {
 		List<Prestamo_has_Dispositivo> prestamos_dispositivos = new ArrayList<Prestamo_has_Dispositivo>();
 		try{
 			prestamos_dispositivos= prestamo_has_dispositivoDao.consultarTodos();
+			assertTrue(prestamos_dispositivos.size()>0);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

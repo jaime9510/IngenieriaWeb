@@ -12,7 +12,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import co.edu.udea.iw.dao.TipoDao;
-import co.edu.udea.iw.dto.Prestamo;
 import co.edu.udea.iw.dto.Tipo;
 import co.edu.udea.iw.exception.MyException;
 

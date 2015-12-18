@@ -11,12 +11,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.DispositivoDao;
 import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Tipo;
-import junit.framework.Assert;
 
 /**
  * En esta clase se definen casos de prueba para los metodos de la clase
@@ -47,7 +45,7 @@ public class DispositivoDaoImplTest {
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
 		try {
 			dispositivos = dispositivoDao.consultarTodos();
-			Assert.assertTrue(dispositivos.size() > 0);
+			assertTrue(dispositivos.size() > 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -124,7 +122,7 @@ public class DispositivoDaoImplTest {
 		tipo.setId(1);
 		try {
 			dispositivos = dispositivoDao.consultarPorTipo(tipo);
-			Assert.assertTrue(dispositivos.size() > 0);
+			assertTrue(dispositivos.size() > 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -140,7 +138,7 @@ public class DispositivoDaoImplTest {
 		String referencia = "001";
 		try {
 			dispositivo = dispositivoDao.consultarUno(referencia);
-			Assert.assertTrue(dispositivo != null);
+			assertTrue(dispositivo != null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -159,7 +157,7 @@ public class DispositivoDaoImplTest {
 		try {
 			disponible = dispositivoDao.consultarDispositivoDisponible(
 					fechaInicio, fechaFin, referencia);
-			Assert.assertTrue(disponible);
+			assertTrue(disponible);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -178,7 +176,7 @@ public class DispositivoDaoImplTest {
 		try {
 			dispositivos = dispositivoDao.consultarDisponibles(fechaInicio,
 					fechaFin);
-			Assert.assertTrue(dispositivos.size() > 0);
+			assertTrue(dispositivos.size() > 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

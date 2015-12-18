@@ -8,12 +8,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import co.edu.udea.iw.dao.DispositivoDao;
 import co.edu.udea.iw.dao.Prestamo_has_DispositivoDao;
-import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Prestamo_has_Dispositivo;
 import co.edu.udea.iw.exception.MyException;
@@ -26,8 +23,8 @@ import co.edu.udea.iw.exception.MyException;
  * actualizaciones de los datos de un Prestamo_has_Dispositivo en la BD
  * 
  * @author Carolina Isaza
- * @author Jaime Londo�o
- * @author Sebasti�n Jim�nez
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
  *
  */
 public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport
@@ -37,7 +34,7 @@ public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport
 	public List<Prestamo_has_Dispositivo> consultarTodos() throws MyException {
 		// Crea la lista de prestamo_has_dispositivos del tipo ArrayList
 		List<Prestamo_has_Dispositivo> pres_disp = new ArrayList<Prestamo_has_Dispositivo>();
-		// Se crea una session con la que se obtendr� una conexi�n f�sica con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -63,7 +60,7 @@ public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport
 
 	@Override
 	public void crear(Prestamo_has_Dispositivo pd) throws MyException {
-		// Se crea una session con la que se obtendr� una conexi�n f�sica con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -107,7 +104,6 @@ public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport
 			String referencia = (String) query.uniqueResult();
 			// Si la referencia es diferente de nula retorna true
 			if (referencia != null) {
-				System.out.println("_________________" + referencia);
 				return true;
 			}
 		} catch (HibernateException e) {

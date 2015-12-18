@@ -9,12 +9,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.TipoDao;
-import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Tipo;
-import junit.framework.Assert;
 
 /**
  * En esta clase se definen casos de prueba para los metodos de la clase
@@ -44,7 +41,7 @@ public class TipoDaoImplTest {
 		List<Tipo> tipos = null;
 		try {
 			tipos = tipoDao.consultarTodos();
-			Assert.assertTrue(tipos.size() > 0);
+			assertTrue(tipos.size() > 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,7 +56,7 @@ public class TipoDaoImplTest {
 		tipo.setNombre("Tablet");
 		try {
 			tipoDao.crear(tipo);
-			Assert.assertTrue(true);
+			assertTrue(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,7 +72,7 @@ public class TipoDaoImplTest {
 		int id = 1;
 		try {
 			tipo = tipoDao.consultarUno(id);
-			Assert.assertTrue(tipo != null);
+			assertTrue(tipo != null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

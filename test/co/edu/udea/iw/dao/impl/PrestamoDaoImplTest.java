@@ -11,13 +11,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.PrestamoDao;
 import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Prestamo;
-import co.edu.udea.iw.exception.MyException;
-
 /**
  * En esta clase se definen casos de prueba para los metodos de la clase
  * Prestamo en cuanto al acceso a la base de datos.

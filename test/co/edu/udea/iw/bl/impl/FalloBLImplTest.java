@@ -104,6 +104,7 @@ public class FalloBLImplTest {
 		Fallo fallo = new Fallo();
 		try {
 			falloBL.consultarUno(id);
+			assertTrue(fallo != null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

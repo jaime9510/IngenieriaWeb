@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import co.edu.udea.iw.dto.Dispositivo;
-import co.edu.udea.iw.dto.Tipo;
 import co.edu.udea.iw.exception.MyException;
 
 /**

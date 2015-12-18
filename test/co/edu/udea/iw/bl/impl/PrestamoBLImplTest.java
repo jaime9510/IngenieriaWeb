@@ -13,7 +13,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import co.edu.udea.iw.bl.PrestamoBL;
-import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Prestamo;
 
 /**

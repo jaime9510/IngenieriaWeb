@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.FalloDao;
 import co.edu.udea.iw.dto.Dispositivo;
@@ -46,6 +45,7 @@ public class FalloDaoImplTest {
 		List<Fallo> fallos = new ArrayList<Fallo>();
 		try{
 			fallos = falloDao.consultarTodos();
+			assertTrue(fallos.size()>0);
 		}catch(Exception e ){
 			e.printStackTrace();
 		}

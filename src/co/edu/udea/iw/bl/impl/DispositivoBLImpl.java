@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import co.edu.udea.iw.bl.DispositivoBL;
 import co.edu.udea.iw.dao.AdministradorDao;
 import co.edu.udea.iw.dao.DispositivoDao;

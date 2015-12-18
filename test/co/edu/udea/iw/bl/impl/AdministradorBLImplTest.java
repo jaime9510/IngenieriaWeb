@@ -2,20 +2,14 @@ package co.edu.udea.iw.bl.impl;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.bl.AdministradorBL;
-import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.exception.MyException;
-import junit.framework.Assert;
 
 
 /**
@@ -46,7 +40,7 @@ public class AdministradorBLImplTest {
 		String contrasena = "sebasj14";
 		try {
 			boolean logueado = administradorBL.login(email, contrasena);
-			Assert.assertTrue(logueado);
+			assertTrue(logueado);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
