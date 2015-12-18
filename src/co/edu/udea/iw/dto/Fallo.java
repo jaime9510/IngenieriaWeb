@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * Esta clase contiene los atributos de un Fallo en un dispositivo del
- * Laboratorio de Neurociencias y sus respectivos metodos de acceso (getters &
+ * Laboratorio de Neurociencias y sus respectivos metodos de acceso (getters and
  * setters).
  * 
  * @author Carolina Isaza

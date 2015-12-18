@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 /**
  * Clase para validaciones en general del sistema
- * @author Elver Suárez Alzate
+ * @author Elver Suarez Alzate
  */
 public class Validaciones {
 	
@@ -13,9 +13,9 @@ public class Validaciones {
         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     
 	/**
-	 * Valida que el correo electrónico establecido como parámetro sea un correo electrónico con formato válido
-	 * @param correo texto con el correo electrónico a validar
-	 * @return true si el texto tiene un formato de correo electrónico válido, de lo contrario retorna false
+	 * Valida que el correo electronico establecido como parametro sea un correo electronico con formato valido
+	 * @param email texto con el correo electronico a validar
+	 * @return true si el texto tiene un formato de correo electronico valido, de lo contrario retorna false
 	 */
 	public static boolean isEmail(String email) {
 		 

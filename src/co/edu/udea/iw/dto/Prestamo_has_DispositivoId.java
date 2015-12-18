@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Esta clase contiene los atributos de la relacion de un dispositivo asociado a
  * un prestamo del Laboratorio de Neurociencias y sus respectivos metodos de
- * acceso (getters & setters).
+ * acceso (getters and setters).
  * 
  * @author Carolina Isaza
  * @author Sebastian Jimenez

@@ -43,7 +43,7 @@ public interface FalloDao {
 
 	/**
 	 * Actualiza en la base de datos de los datos del fallo, el numero de
-	 * identificación del fallo no podra ser actualizado.
+	 * identificacion del fallo no podra ser actualizado.
 	 * 
 	 * @param fallo
 	 *            Objeto con los datos correspondientes a un Fallo.
@@ -59,7 +59,7 @@ public interface FalloDao {
 	 * 
 	 * @param dispositivo
 	 *            Objeto del tipo Dispositivo con el que se realizara la
-	 *            búsqueda.
+	 *            busqueda.
 	 * @return Lista con los fallos encontrados en la base de datos para el
 	 *         dispositivo especificado.
 	 * @throws MyException

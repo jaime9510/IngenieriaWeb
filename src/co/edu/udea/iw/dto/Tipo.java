@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Esta clase contiene los atributos de tipo de dispositivos en el Laboratorio
- * de Neurociencias y sus respectivos metodos de acceso (getters & setters).
+ * de Neurociencias y sus respectivos metodos de acceso (getters and setters).
  * 
  * @author Carolina Isaza
  * @author Sebastian Jimenez

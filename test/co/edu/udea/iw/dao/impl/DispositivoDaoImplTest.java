@@ -18,23 +18,45 @@ import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Tipo;
 import junit.framework.Assert;
 
+/**
+ * En esta clase se definen casos de prueba para los metodos de la clase
+ * Dispositivo en cuanto al acceso a la base de datos.
+ * 
+ * @author Carolina Isaza
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:SpringConf.xml")
+@ContextConfiguration(locations = "classpath:SpringConf.xml")
 public class DispositivoDaoImplTest {
 
+	/**
+	 * Objeto de la clase Dispositivo en cuanto al acceso a la base de datos
+	 * (dao).
+	 */
 	@Autowired
 	DispositivoDao dispositivoDao;
-	//@Test
+
+	/**
+	 * Metodo para probar la consulta de todos los dispositivos registrados en
+	 * la base de datos.
+	 */
+	@Test
 	public void testConsultarTodos() {
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
-		try{
+		try {
 			dispositivos = dispositivoDao.consultarTodos();
-			Assert.assertTrue(dispositivos.size() >0);
-		}catch(Exception e){
+			Assert.assertTrue(dispositivos.size() > 0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Metodo para probar la creacion de un nuevo dispositivo en la base de
+	 * datos.
+	 */
 	@Test
 	public void testCrear() {
 		Dispositivo dispositivo = new Dispositivo();
@@ -45,17 +67,20 @@ public class DispositivoDaoImplTest {
 		dispositivo.setFoto("link");
 		Tipo tipo = new Tipo();
 		tipo.setId(1);
-		//tipo.setNombre("Tablet");
+		// tipo.setNombre("Tablet");
 		dispositivo.setTipo(tipo);
-		try{
+		try {
 			dispositivoDao.crear(dispositivo);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
-	//@Test
+	/**
+	 * Metodo para probar la actualizacion de informacion de un dispositivo.
+	 */
+	@Test
 	public void testActualizar() {
 		Dispositivo dispositivo = new Dispositivo();
 		dispositivo.setReferencia("001");
@@ -66,73 +91,95 @@ public class DispositivoDaoImplTest {
 		Tipo tipo = new Tipo();
 		tipo.setId(1);
 		dispositivo.setTipo(tipo);
-		try{
+		try {
 			dispositivoDao.actualizar(dispositivo);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	//@Test
+	/**
+	 * Metodo para probar la eliminacion de informacion de un dispositivo.
+	 */
+	@Test
 	public void testEliminar() {
 		Dispositivo dispositivo = new Dispositivo();
 		dispositivo.setReferencia("001");
-		
-		try{
+
+		try {
 			dispositivoDao.eliminar(dispositivo);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Metodo para probar la consulta de todos los dispositivos de un tipo en
+	 * especifico.
+	 */
 	@Test
 	public void testConsultarPorTipo() {
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
 		Tipo tipo = new Tipo();
 		tipo.setId(1);
-		try{
+		try {
 			dispositivos = dispositivoDao.consultarPorTipo(tipo);
-			Assert.assertTrue(dispositivos.size()>0);
-		}catch(Exception e){
+			Assert.assertTrue(dispositivos.size() > 0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	//@Test
+	/**
+	 * Metodo para probar la consulta de un unico dispositivo segun su
+	 * referencia.
+	 */
+	@Test
 	public void testConsultarUno() {
-		Dispositivo dispositivo ;
+		Dispositivo dispositivo;
 		String referencia = "001";
-		try{
+		try {
 			dispositivo = dispositivoDao.consultarUno(referencia);
 			Assert.assertTrue(dispositivo != null);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * Metodo para probar la consulta de disponibilidad de un dispositivo en un
+	 * rango de fechas especifico.
+	 */
 	@Test
 	public void testConsultarDispositivoDisponible() {
 		Boolean disponible;
 		Date fechaInicio = new Date();
 		Date fechaFin = new Date();
 		String referencia = "001";
-		try{
-			disponible = dispositivoDao.consultarDispositivoDisponible(fechaInicio, fechaFin, referencia);
+		try {
+			disponible = dispositivoDao.consultarDispositivoDisponible(
+					fechaInicio, fechaFin, referencia);
 			Assert.assertTrue(disponible);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Metodo para probar la consulta de todos los dipositivos en la base de
+	 * datos que esten disponibles para prestamo.
+	 */
 	@Test
 	public void testConsultarDisponibles() {
 		List<String> dispositivos = new ArrayList<String>();
 		Date fechaInicio = new Date();
 		Date fechaFin = new Date();
 
-		try{
-			dispositivos = dispositivoDao.consultarDisponibles(fechaInicio, fechaFin);
-			Assert.assertTrue(dispositivos.size()>0);
-		}catch(Exception e){
+		try {
+			dispositivos = dispositivoDao.consultarDisponibles(fechaInicio,
+					fechaFin);
+			Assert.assertTrue(dispositivos.size() > 0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

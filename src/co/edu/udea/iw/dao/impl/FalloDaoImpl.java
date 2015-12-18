@@ -23,8 +23,8 @@ import co.edu.udea.iw.exception.MyException;
  * los datos de un Fallo en la BD
  * 
  * @author Carolina Isaza
- * @author Jaime Londoño
- * @author Sebastián Jiménez
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
  *
  */
 public class FalloDaoImpl extends HibernateDaoSupport implements FalloDao {
@@ -33,7 +33,7 @@ public class FalloDaoImpl extends HibernateDaoSupport implements FalloDao {
 	public List<Fallo> consultarTodos() throws MyException {
 		// Crea la lista de fallos del tipo ArrayList
 		List<Fallo> fallos = new ArrayList<Fallo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -58,7 +58,7 @@ public class FalloDaoImpl extends HibernateDaoSupport implements FalloDao {
 
 	@Override
 	public void crear(Fallo fallo) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -87,7 +87,7 @@ public class FalloDaoImpl extends HibernateDaoSupport implements FalloDao {
 
 	@Override
 	public void actualizar(Fallo fallo) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -113,7 +113,7 @@ public class FalloDaoImpl extends HibernateDaoSupport implements FalloDao {
 	@Override
 	public List<Fallo> consultarFalloPorDispositivo(Dispositivo dispositivo) throws MyException {
 		List<Fallo> fallos = new ArrayList<Fallo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -140,7 +140,7 @@ public class FalloDaoImpl extends HibernateDaoSupport implements FalloDao {
 	@Override
 	public List<Fallo> consultarDanosSinSolucion() throws MyException {
 		List<Fallo> fallos = new ArrayList<Fallo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {

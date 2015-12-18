@@ -100,7 +100,7 @@ public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport
 		try {
 			session = getSession();
 			Query query = session
-					.createSQLQuery("select pd.referencia from Prestamo_has_Dispositivo as pd where pd.referencia = '"
+					.createSQLQuery("select distinct pd.referencia from Prestamo_has_Dispositivo as pd where pd.referencia = '"
 							+ dispositivo.getReferencia()+"'");
 			// Se almacena en un string el resultado unico de la
 			// busqueda realizada

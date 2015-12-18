@@ -17,13 +17,30 @@ import co.edu.udea.iw.dao.FalloDao;
 import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Fallo;
 
+/**
+ * En esta clase se definen casos de prueba para los metodos de la clase
+ * Fallo en cuanto al acceso a la base de datos.
+ * 
+ * @author Carolina Isaza
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:SpringConf.xml")
 public class FalloDaoImplTest {
 
+	/**
+	 * Objeto de la clase Fallo en cuanto al acceso a la base de datos
+	 * (dao).
+	 */
 	@Autowired
 	FalloDao falloDao;
 	
+	/**
+	 * Metodo para probar la consulta de todos los fallos en la base de
+	 * datos.
+	 */
 	@Test
 	public void testConsultarTodos() {
 		List<Fallo> fallos = new ArrayList<Fallo>();
@@ -34,6 +51,10 @@ public class FalloDaoImplTest {
 		}
 	}
 
+	/**
+	 * Metodo para probar la creacion de un nuevo fallo en la base de
+	 * datos.
+	 */
 	@Test
 	public void testCrear() {
 		Fallo fallo = new Fallo();
@@ -53,7 +74,11 @@ public class FalloDaoImplTest {
 		}
 	}
 
-	//@Test
+	
+	/**
+	 * Metodo para probar la actualizacion de informacion de un fallo.
+	 */
+	@Test
 	public void testActualizar() {
 		Fallo fallo = new Fallo();
 		Date fecha = new Date();
@@ -72,6 +97,9 @@ public class FalloDaoImplTest {
 		}
 	}
 
+	/**
+	 * Metodo para probar la consulta de los fallos presentados por un dispositivo
+	 */
 	@Test
 	public void testConsultarFalloPorDispositivo() {
 		List<Fallo> fallos = new ArrayList<Fallo>();
@@ -85,6 +113,9 @@ public class FalloDaoImplTest {
 		}
 	}
 
+	/**
+	 * Metodo para probar la consulta de los fallos que no han sido solucionados
+	 */
 	@Test
 	public void testConsultarDanosSinSolucion() {
 		List<Fallo> fallos = new ArrayList<Fallo>();

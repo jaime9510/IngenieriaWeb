@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Esta clase contiene los atributos de un Administrador del Laboratorio de
- * Neurociencias y sus respectivos metodos de acceso (getters & setters).
+ * Neurociencias y sus respectivos metodos de acceso (getters and setters).
  * 
  * @author Carolina Isaza
  * @author Sebastian Jimenez
@@ -64,7 +64,7 @@ public class Administrador implements Serializable {
 	/**
 	 * Metodo para asignar un valor al atributo apellido
 	 * 
-	 * @param apellido
+	 * @param apellidos
 	 *            Apellido a asignar al objeto administrador
 	 */
 	public void setApellidos(String apellidos) {
@@ -72,7 +72,7 @@ public class Administrador implements Serializable {
 	}
 
 	/**
-	 * Metodo para obtener la contraseña del administrador
+	 * Metodo para obtener la contrasena del administrador
 	 * 
 	 * @return Contrasena cifrada del objeto administrador
 	 */

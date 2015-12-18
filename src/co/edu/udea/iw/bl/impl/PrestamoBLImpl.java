@@ -144,13 +144,11 @@ public class PrestamoBLImpl implements PrestamoBL {
 			Date fechaFin, String[] dispositivos) throws MyException {
 		// Se crea un objeto del tipo Prestamo
 		Prestamo prestamo = new Prestamo();
-		Calendar calendarInicio = GregorianCalendar.getInstance(); // creates a
-																	// new
-																	// calendar
-																	// instance
+		Calendar calendarInicio = GregorianCalendar.getInstance(); 
 		Calendar calendarFin = GregorianCalendar.getInstance();
-		calendarInicio.setTime(fechaInicio); // assigns calendar to given date
+		calendarInicio.setTime(fechaInicio); 
 		calendarFin.setTime(fechaFin);
+		Calendar fechaActual = GregorianCalendar.getInstance();
 		// // Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (nombreUsuario == null || "".equals(nombreUsuario)) {
@@ -163,12 +161,26 @@ public class PrestamoBLImpl implements PrestamoBL {
 			throw new MyException("El correo del administrador no es valido");
 		}
 		if (fechaInicio == null || calendarInicio.get(Calendar.HOUR_OF_DAY) < 8
-				|| calendarInicio.get(Calendar.HOUR_OF_DAY) > 18) {
+				|| calendarInicio.get(Calendar.HOUR_OF_DAY) >= 18) {
 			throw new MyException("Ingrese una fecha valida");
 		}
 		if (fechaFin == null || calendarFin.get(Calendar.HOUR_OF_DAY) < 8
-				|| calendarFin.get(Calendar.HOUR_OF_DAY) > 18) {
+				|| calendarFin.get(Calendar.HOUR_OF_DAY) >= 18) {
 			throw new MyException("Ingrese una fecha de fin de prestamo valida");
+		}
+		long msInicio = fechaInicio.getTime();
+		long msFin = fechaFin.getTime();
+		if(msFin - msInicio > 8*3600*1000){
+			throw new MyException("El prestamo no puede ser realizado por mas de 8 horas");
+		}
+		if(calendarInicio.before(fechaActual)){
+			throw new MyException("La fecha de inicio ingresada es anterior al dia de hoy");
+		}
+		if(calendarFin.before(fechaActual)){
+			throw new MyException("La fecha de fin ingresada es anterior al dia de hoy");
+		}
+		if(calendarFin.before(calendarInicio)){
+			throw new MyException("La fecha de fin ingresada es anterior a la fecha de inicio");
 		}
 		if (dispositivos.length < 1) {
 			throw new MyException(

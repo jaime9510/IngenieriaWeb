@@ -24,8 +24,8 @@ import co.edu.udea.iw.exception.MyException;
  * datos de un Tipo en la BD
  * 
  * @author Carolina Isaza
- * @author Jaime Londoño
- * @author Sebastián Jiménez
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
  *
  */
 public class TipoDaoImpl extends HibernateDaoSupport implements TipoDao {
@@ -34,7 +34,7 @@ public class TipoDaoImpl extends HibernateDaoSupport implements TipoDao {
 	public List<Tipo> consultarTodos() throws MyException {
 		// Crea la lista de tipos del tipo ArrayList
 		List<Tipo> tipos = new ArrayList<Tipo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -59,7 +59,7 @@ public class TipoDaoImpl extends HibernateDaoSupport implements TipoDao {
 
 	@Override
 	public void crear(Tipo tipo) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -89,7 +89,7 @@ public class TipoDaoImpl extends HibernateDaoSupport implements TipoDao {
 	@Override
 	public Tipo consultarUno(int id) throws MyException {
 		Tipo tipo;
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -116,7 +116,7 @@ public class TipoDaoImpl extends HibernateDaoSupport implements TipoDao {
 	@Override
 	public Tipo consultarPorNombre(String nombre) throws MyException {
 		Tipo tipo;
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {

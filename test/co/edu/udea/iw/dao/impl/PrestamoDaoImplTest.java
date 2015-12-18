@@ -18,25 +18,43 @@ import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Prestamo;
 import co.edu.udea.iw.exception.MyException;
 
+/**
+ * En esta clase se definen casos de prueba para los metodos de la clase
+ * Prestamo en cuanto al acceso a la base de datos.
+ * 
+ * @author Carolina Isaza
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:SpringConf.xml")
-
+@ContextConfiguration(locations = "classpath:SpringConf.xml")
 public class PrestamoDaoImplTest {
 
+	/**
+	 * Objeto de la clase Prestamo en cuanto al acceso a la base de datos (dao).
+	 */
 	@Autowired
 	PrestamoDao prestamoDao;
-	
+
+	/**
+	 * Metodo para probar la consulta de todos los prestamos en la base de
+	 * datos.
+	 */
 	@Test
 	public void testConsultarTodos() {
 		List<Prestamo> prestamos = new ArrayList<Prestamo>();
-		try{
-			prestamos= prestamoDao.consultarTodos();
-			assertTrue(prestamos.size()>0);
-		}catch(Exception e){
+		try {
+			prestamos = prestamoDao.consultarTodos();
+			assertTrue(prestamos.size() > 0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Metodo para probar la creacion de un nuevo prestamo en la base de datos.
+	 */
 	@Test
 	public void testCrear() {
 		Prestamo prestamo = new Prestamo();
@@ -51,14 +69,17 @@ public class PrestamoDaoImplTest {
 		prestamo.setFechaInicio(fechaIn);
 		prestamo.setFechaFin(fechaFin);
 		prestamo.setNombreUsuario("Jessica");
-		try{
+		try {
 			prestamoDao.crear(prestamo);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	//@Test
+	/**
+	 * Metodo para probar la actualizacion de informacion de un prestamo.
+	 */
+	@Test
 	public void testModificar() {
 		Prestamo prestamo = new Prestamo();
 		Administrador admin = new Administrador();
@@ -72,44 +93,54 @@ public class PrestamoDaoImplTest {
 		prestamo.setFechaInicio(fechaIn);
 		prestamo.setFechaFin(fechaFin);
 		prestamo.setNombreUsuario("Jessica");
-		try{
+		try {
 			prestamoDao.crear(prestamo);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Metodo para probar la consulta de un unico prestamo segun su
+	 * identificador
+	 */
 	@Test
 	public void testConsultarUno() {
 		Prestamo prestamo = new Prestamo();
-		int id= 1;
-		try{
+		int id = 1;
+		try {
 			prestamo = prestamoDao.consultarUno(id);
 			assertTrue(prestamo != null);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Metodo para probar la consulta de los prestamos sin revisar.
+	 */
 	@Test
-	public void testPrestamosSinRevisar(){
+	public void testPrestamosSinRevisar() {
 		List<Prestamo> prestamos = new ArrayList<Prestamo>();
-		try{
+		try {
 			prestamos = prestamoDao.prestamosSinRevisar();
-			assertTrue(prestamos.size()>0);
-		}catch(Exception e){
+			assertTrue(prestamos.size() > 0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Metodo para probar la consulta de los prestamos realizados por un usuario.
+	 */
 	@Test
-	public void testPrestamoPorUsuario(){
+	public void testPrestamoPorUsuario() {
 		List<Prestamo> prestamos = new ArrayList<Prestamo>();
 		String email = "Jessi@gmail.com";
-		try{
+		try {
 			prestamos = prestamoDao.prestamoPorUsuario(email);
-			assertTrue(prestamos.size()>0);
-		}catch(Exception e){
+			assertTrue(prestamos.size() > 0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

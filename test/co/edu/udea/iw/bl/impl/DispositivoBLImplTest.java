@@ -17,14 +17,28 @@ import co.edu.udea.iw.bl.DispositivoBL;
 import co.edu.udea.iw.dto.Dispositivo;
 import junit.framework.Assert;
 
+/**
+ * En esta clase se definen casos de prueba para los metodos de la clase 
+ * Dispositivo en cuanto a la logica del negocio.
+ * 
+ * @author Carolina Isaza
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:SpringConf.xml")
-
 public class DispositivoBLImplTest {
 
+	/**
+	 * Objeto de la clase Dispositivo de la logica del negocio.
+	 */
 	@Autowired
 	DispositivoBL dispositivoBL;
 
+	/**
+	 * Metodo para probar la consulta de todos los registros de Dispositivos en la base de datos.
+	 */
 	@Test
 	public void testConsultarTodos() {
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
@@ -36,10 +50,13 @@ public class DispositivoBLImplTest {
 		}
 	}
 
+	/**
+	 * Metodo para probar la creacion de un nuevo dispositivo en la base de datos.
+	 */
 	@Test
 	public void testCrearDispositivo() {
 		String referencia = "A0021R";
-		String nombre = "Motorola G primera generación";
+		String nombre = "Motorola G primera generacion";
 		String descripcion = "1 GB de RAM";
 		int tipo = 1;
 		String foto = "url";
@@ -51,10 +68,14 @@ public class DispositivoBLImplTest {
 		}
 	}
 
-	// @Test
+	
+	/**
+	 * Metodo para probar la actualizacion de datos de un dispositivo en la base de datos.
+	 */
+	@Test
 	public void testActualizarDispositivo() {
 		String referencia = "A0021R";
-		String nombre = "Motorola G primera generación";
+		String nombre = "Motorola G primera generacion";
 		String descripcion = "1 GB de RAM";
 		int tipo = 1;
 		String foto = "url";
@@ -68,11 +89,9 @@ public class DispositivoBLImplTest {
 		}
 	}
 
-	@Test
-	public void testEliminarDispositivo() {
-
-	}
-
+	/**
+	 * Metodo para probar la consulta de todos los dispositivos de un tipo en especifico.
+	 */
 	@Test
 	public void testConsultarPorTipo() {
 		List<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
@@ -85,6 +104,9 @@ public class DispositivoBLImplTest {
 		}
 	}
 
+	/**
+	 * Metodo para probar la consulta de un dispositivo en especifico.
+	 */
 	@Test
 	public void testConsultarUno() {
 		Dispositivo dispositivo = new Dispositivo();
@@ -96,6 +118,9 @@ public class DispositivoBLImplTest {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Metodo para probar la consulta de todos los dispositivos que esten disponibles para prestamo.
+	 */
 	@Test
 	public void testMostrarDispositivosDisponibles(){
 		Date fechaInicio = new Date(2015,12,18,15,00);

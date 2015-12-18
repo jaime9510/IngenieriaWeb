@@ -23,17 +23,17 @@ import co.edu.udea.iw.exception.MyException;
  * los datos de un Prestamo en la BD
  * 
  * @author Carolina Isaza
- * @author Jaime Londoño
- * @author Sebastián Jiménez
+ * @author Jaime Londono
+ * @author Sebastien Jimenez
  *
  */
 public class PrestamoDaoImpl extends HibernateDaoSupport implements PrestamoDao {
 
 	@Override
 	public List<Prestamo> consultarTodos() throws MyException {
-		// Crea la lista de préstamos del tipo ArrayList
+		// Crea la lista de prestamos del tipo ArrayList
 		List<Prestamo> prestamos = new ArrayList<Prestamo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -58,7 +58,7 @@ public class PrestamoDaoImpl extends HibernateDaoSupport implements PrestamoDao 
 
 	@Override
 	public void crear(Prestamo prestamo) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -87,7 +87,7 @@ public class PrestamoDaoImpl extends HibernateDaoSupport implements PrestamoDao 
 
 	@Override
 	public void modificar(Prestamo prestamo) throws MyException {
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -116,7 +116,7 @@ public class PrestamoDaoImpl extends HibernateDaoSupport implements PrestamoDao 
 	@Override
 	public Prestamo consultarUno(int id) throws MyException {
 		Prestamo prestamo;
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -144,7 +144,7 @@ public class PrestamoDaoImpl extends HibernateDaoSupport implements PrestamoDao 
 	@Override
 	public List<Prestamo> prestamosSinRevisar() throws MyException {
 		List<Prestamo> prestamos = new ArrayList<Prestamo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {
@@ -171,7 +171,7 @@ public class PrestamoDaoImpl extends HibernateDaoSupport implements PrestamoDao 
 	@Override
 	public List<Prestamo> prestamoPorUsuario(String correoUsuario) throws MyException {
 		List<Prestamo> prestamos = new ArrayList<Prestamo>();
-		// Se crea una session con la que se obtendrá una conexión física con la
+		// Se crea una session con la que se obtendra una conexion fisica con la
 		// Base de datos
 		Session session = null;
 		try {

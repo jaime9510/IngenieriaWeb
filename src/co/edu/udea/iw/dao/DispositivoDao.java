@@ -109,7 +109,8 @@ public interface DispositivoDao {
 	 *             Lanza excepcion si hay un problema en la conexion con a base
 	 *             de datos o si la consulta no se ha realizado correctamente.
 	 */
-	public List<String> consultarDisponibles(Date fechaInicio, Date fechaFin) throws MyException;
+	public List<String> consultarDisponibles(Date fechaInicio, Date fechaFin)
+			throws MyException;
 
 	/**
 	 * Consulta si un dispositivo en especifico esta disponible para prestamo en
@@ -127,7 +128,9 @@ public interface DispositivoDao {
 	 * @return True, si el dispositivo esta disponible en el rango de fechas.
 	 *         False, de lo contrario.
 	 * @throws MyException
+	 *             Lanza excepcion si hay un problema en la conexion con a base
+	 *             de datos o si la consulta no se ha realizado correctamente.
 	 */
-	public Boolean consultarDispositivoDisponible(Date fechaInicio, Date fechaFin, String referencia)
-			throws MyException;
+	public Boolean consultarDispositivoDisponible(Date fechaInicio,
+			Date fechaFin, String referencia) throws MyException;
 }

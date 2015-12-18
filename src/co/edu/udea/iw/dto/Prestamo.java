@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * Esta clase contiene los atributos de un prestamo de dispositivos en el
- * Laboratorio de Neurociencias y sus respectivos metodos de acceso (getters &
+ * Laboratorio de Neurociencias y sus respectivos metodos de acceso (getters and
  * setters).
  * 
  * @author Carolina Isaza
@@ -175,7 +175,7 @@ public class Prestamo implements Serializable {
 	/**
 	 * Metodo para obtener la fecha en que el prestamo inicia
 	 * 
-	 * @returnObjeto tipo Date con la fecha en que inicia el prestamo
+	 * @return fechaInicio Objeto tipo Date con la fecha en que inicia el prestamo
 	 */
 	public Date getFechaInicio() {
 		return fechaInicio;

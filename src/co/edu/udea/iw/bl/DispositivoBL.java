@@ -39,7 +39,7 @@ public interface DispositivoBL {
 	 *            Descripcion y caracteristicas tecnicas del dispositivo a
 	 *            crear.
 	 * @param tipo
-	 *            Describe el tipo de dispositivo (proyector, ordenador, móvil,
+	 *            Describe el tipo de dispositivo (proyector, ordenador, movil,
 	 *            etc).
 	 * @param foto
 	 *            Enlace a internet con una foto del dispositivo.
@@ -51,27 +51,38 @@ public interface DispositivoBL {
 	 *             informacion no valida o ya existe un dispositivo con la
 	 *             referencia especificada.
 	 */
-	public void crearDispositivo(String referencia, String nombre, String descripcion, int tipo, String foto,
-			String emailAdministrador) throws MyException;
+	public void crearDispositivo(String referencia, String nombre,
+			String descripcion, int tipo, String foto, String emailAdministrador)
+			throws MyException;
 
 	/**
 	 * Actualiza la informacion de un dispositivo almacenado en la base datos, a
-	 * excepcion del correo electronico del administrador que registro el
-	 * dispositivo.
+	 * excepcion de la referencia del dispositivo.
 	 * 
 	 * @param referencia
 	 *            String con el identificador del dispositivo a actualizar.
 	 * @param nombre
 	 *            Nuevo nombre a asignar al dispositivo.
 	 * @param descripcion
+	 *            Descripcion y caracteristicas nuevos del dispositivo.
 	 * @param tipo
+	 *            Tipo del dispositivo que se quiere actualizar.
 	 * @param foto
+	 *            Nuevo enlace a la foto del dispositivo.
 	 * @param disponible
+	 *            Boolean especificando si el dispositivo esta disponible a
+	 *            prestamo.
 	 * @param emailAdministrador
+	 *            Correo electronico del administrador que realiza la
+	 *            actualizacion de datos.
 	 * @throws MyException
+	 *             Lanza excepcion cuando cuando alguno de los campos contiene
+	 *             informacion no valida o no existe un dispositivo con la
+	 *             referencia especificada.
 	 */
-	public void actualizarDispositivo(String referencia, String nombre, String descripcion, int tipo, String foto,
-			boolean disponible, String emailAdministrador) throws MyException;
+	public void actualizarDispositivo(String referencia, String nombre,
+			String descripcion, int tipo, String foto, boolean disponible,
+			String emailAdministrador) throws MyException;
 
 	/**
 	 * Elimina un dispositivo registrado en la base de datos.
@@ -86,7 +97,8 @@ public interface DispositivoBL {
 	 *             informacion no valida o no existe el dispositivo que se
 	 *             quiere eliminar.
 	 */
-	public void eliminarDispositivo(String referencia, String emailAdministrador) throws MyException;
+	public void eliminarDispositivo(String referencia, String emailAdministrador)
+			throws MyException;
 
 	/**
 	 * Consulta todos los dispositivos almacenados en la base de datos, cuyo
@@ -129,5 +141,6 @@ public interface DispositivoBL {
 	 * @return Lista de dispositivos que esten disponibles en las fechas
 	 *         indicadas.
 	 */
-	public List<Dispositivo> mostrarDispositivosDisponibles(Date fechaInicio, Date fechaFin);
+	public List<Dispositivo> mostrarDispositivosDisponibles(Date fechaInicio,
+			Date fechaFin);
 }

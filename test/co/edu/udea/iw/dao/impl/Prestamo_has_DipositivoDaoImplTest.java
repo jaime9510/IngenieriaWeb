@@ -18,14 +18,31 @@ import co.edu.udea.iw.dto.Prestamo;
 import co.edu.udea.iw.dto.Prestamo_has_Dispositivo;
 import co.edu.udea.iw.dto.Prestamo_has_DispositivoId;
 
+/**
+ * En esta clase se definen casos de prueba para los metodos de la clase
+ * Prestamo_has_Dispositivo en cuanto al acceso a la base de datos.
+ * 
+ * @author Carolina Isaza
+ * @author Jaime Londono
+ * @author Sebastian Jimenez
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:SpringConf.xml")
 
 public class Prestamo_has_DipositivoDaoImplTest {
 
+	/**
+	 * Objeto de la clase Prestamo_has_Dispositivo en cuanto al acceso a la base de datos
+	 * (dao).
+	 */
 	@Autowired
 	Prestamo_has_DispositivoDao prestamo_has_dispositivoDao;
 	
+	/**
+	 * Metodo para probar la consulta de todos los prestamos por dispositivo en la base de
+	 * datos.
+	 */
 	@Test
 	public void testConsultarTodos() {
 		List<Prestamo_has_Dispositivo> prestamos_dispositivos = new ArrayList<Prestamo_has_Dispositivo>();
@@ -36,6 +53,10 @@ public class Prestamo_has_DipositivoDaoImplTest {
 		}
 	}
 
+	/**
+	 * Metodo para probar la creacion de un nuevo prestamo por dispositivo en la base de
+	 * datos.
+	 */
 	@Test
 	public void testCrear() {
 		Prestamo_has_Dispositivo pres_disp = new Prestamo_has_Dispositivo();

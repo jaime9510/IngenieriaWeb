@@ -32,7 +32,7 @@ public interface TipoDao {
 	 * de dispositivo.
 	 * 
 	 * @param tipo
-	 *            Objeto Tipo con los datos que serán almacenados en la base de
+	 *            Objeto Tipo con los datos que seran almacenados en la base de
 	 *            datos.
 	 * @throws MyException
 	 *             Si la operacion con la base de datos falla y no puede
