@@ -16,6 +16,11 @@ import co.edu.udea.iw.dto.Prestamo_has_Dispositivo;
 import co.edu.udea.iw.exception.MyException;
 
 /**
+ * Clase en la que se implementan los metodos definidos en la interface
+ * Prestamo_has_DispositivoDao y se extiende de la clase HibernateDaoSupport que
+ * es la que permite la integracion entre los frameworks de Hibernate y Spring,
+ * en esta clase se realizaran las consultas, inserciones, borrados y
+ * actualizaciones de los datos de un Prestamo_has_Dispositivo en la BD
  * 
  * @author Carolina Isaza
  * @author Jaime Londoño
@@ -33,13 +38,21 @@ public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport implemen
 		Session session = null;
 		try {
 			session = getSession();
+			// Se crea un objeto Criteria en la que se especifica una consulta
+			// en base a la clase Prestamo_has_Dispositivo
 			Criteria criteria = session.createCriteria(Prestamo_has_Dispositivo.class);
+			// se almacena en la lista de pres_disp la lista devuelta por
+			// la consulta realizada en la linea anterior
 			pres_disp = criteria.list();
 		} catch (HibernateException e) {
+			// Si se presenta un fallo en la conexion a la base de datos o a la
+			// consulta se lanza una excepcion propia (MyException) con el
+			// mensaje de error correspondiente
 			throw new MyException(e);
 		} finally {
 			// session.close();
 		}
+		// Retorna la lista de Prestamos_has_Dispositivos
 		return pres_disp;
 	}
 
@@ -50,10 +63,21 @@ public class Prestamo_has_DipositivoDaoImpl extends HibernateDaoSupport implemen
 		Session session = null;
 		try {
 			session = getSession();
+			// Se crea un objeto del tipo Transaction y se le asigna la session,
+			// lo anterior con el fin de comenzar operaciones en la base de
+			// datos
 			Transaction tx = session.beginTransaction();
+			// Se envia al metodo de guardar, correspondiente a session, el
+			// Objeto Prestamo_has_Dispositivo que se almacenara como nuevo
+			// registro en la BD
 			session.save(pd);
+			// Se realiza el commit en la base de datos para que persistan los
+			// objetos
 			tx.commit();
 		} catch (HibernateException e) {
+			// Si se presenta un fallo en la conexion a la base de datos o en la
+			// creacion de filas en la BD se lanza una excepcion propia
+			// (MyException) con el mensaje de error correspondiente
 			throw new MyException(e);
 		} finally {
 			// session.close();
