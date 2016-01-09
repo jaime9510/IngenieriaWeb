@@ -79,4 +79,5 @@
 		<property name="prestamoDao" ref="PrestamoDao"></property>
 		<property name="dispositivoDao" ref="DispositivoDao"></property>
 	</bean>
+	<context:component-scan base-package="co.edu.udea.iw.webServices"/>
 </beans>
