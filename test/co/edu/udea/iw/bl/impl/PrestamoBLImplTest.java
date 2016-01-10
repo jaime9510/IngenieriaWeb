@@ -44,8 +44,8 @@ public class PrestamoBLImplTest {
 		String cedulaUsuario = "125448";
 		String correoUsuario = "jaime951@gmail.com";
 		String correoAdmin = "sebasj14@gmail.com";
-		Date fechaInicio = new Date(2015, 12, 19, 8, 00, 00);
-		Date fechaFin = new Date(2015, 12, 19, 16, 00, 01);
+		Date fechaInicio = new Date(2016,01, 12, 8, 00, 00);
+		Date fechaFin = new Date(2016, 01,12, 16, 00, 00);
 		String[] dispositivos = new String[1];
 		// dispositivos[0] = "001";
 		dispositivos[0] = "A0021R";
@@ -61,7 +61,7 @@ public class PrestamoBLImplTest {
 	 * Metodo para probar la modificacion del estado de un prestamo en la base
 	 * de datos.
 	 */
-	@Test
+	//@Test
 	public void testModificar() {
 		int id = 1;
 		String correoAdministrador = "sebasj14@gmail.com";
@@ -77,7 +77,7 @@ public class PrestamoBLImplTest {
 	 * Metodo para probar la consulta de todos los prestamos en la base de
 	 * datos.
 	 */
-	@Test
+	//@Test
 	public void testConsultarTodos() {
 		List<Prestamo> prestamos = new ArrayList<Prestamo>();
 		try {
@@ -92,7 +92,7 @@ public class PrestamoBLImplTest {
 	 * Metodo para probar la consulta de un unico prestamo segun su
 	 * identificador.
 	 */
-	@Test
+	//@Test
 	public void testConsultarUno() {
 		int idPrestamo = 1;
 		Prestamo prestamo = new Prestamo();
@@ -108,7 +108,7 @@ public class PrestamoBLImplTest {
 	 * Metodo para probar la consulta de todos los prestamos en la base de datos
 	 * que no hayan sido aprobados o rechazados.
 	 */
-	@Test
+	//@Test
 	public void testPrestamosSinRevisar() {
 		List<Prestamo> prestamos = new ArrayList<Prestamo>();
 		try {

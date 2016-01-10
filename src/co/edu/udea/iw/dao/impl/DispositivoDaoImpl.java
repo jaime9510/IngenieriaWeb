@@ -141,6 +141,14 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 			// actualizacion de la BD se lanza una excepcion propia
 			// (MyException) con el mensaje de error correspondiente
 			throw new MyException(e);
+		}finally {
+			if (session != null) {
+				try {
+					session.close();
+				} catch (HibernateException e) {
+					throw new MyException(e);
+				}
+			}
 		}
 
 	}
@@ -196,7 +204,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 			throw new MyException(e);
 		} finally {
 			// Cierra Sesion
-			// session.close();
+			session.close();
 		}
 		// Retorna el dispositivo con la referencia especificada
 		return dispositivo;
