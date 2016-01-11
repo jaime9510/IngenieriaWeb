@@ -51,7 +51,7 @@ public class DispositivoBLImplTest {
 	/**
 	 * Metodo para probar la creacion de un nuevo dispositivo en la base de datos.
 	 */
-	@Test
+	//@Test
 	public void testCrearDispositivo() {
 		String referencia = "A0021R";
 		String nombre = "Motorola G primera generacion";
@@ -70,7 +70,7 @@ public class DispositivoBLImplTest {
 	/**
 	 * Metodo para probar la actualizacion de datos de un dispositivo en la base de datos.
 	 */
-	@Test
+	//@Test
 	public void testActualizarDispositivo() {
 		String referencia = "A0021R";
 		String nombre = "Motorola G primera generacion";

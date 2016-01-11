@@ -65,6 +65,7 @@
 		<property name="dispositivoDao" ref="DispositivoDao"></property>
 		<property name="tipoDao" ref="TipoDao"></property>
 		<property name="administradorDao" ref="AdministradorDao"></property>
+		<property name="prestamo_has_dispositivoDao" ref="Prestamo_has_DispositoDao"></property>
 	</bean>
 	<bean id="FalloBL" class="co.edu.udea.iw.bl.impl.FalloBLImpl">
 		<property name="dispositivoDao" ref="DispositivoDao"></property>

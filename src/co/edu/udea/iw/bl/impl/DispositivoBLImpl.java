@@ -7,6 +7,7 @@ import java.util.List;
 import co.edu.udea.iw.bl.DispositivoBL;
 import co.edu.udea.iw.dao.AdministradorDao;
 import co.edu.udea.iw.dao.DispositivoDao;
+import co.edu.udea.iw.dao.Prestamo_has_DispositivoDao;
 import co.edu.udea.iw.dao.TipoDao;
 import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Dispositivo;
@@ -40,6 +41,11 @@ public class DispositivoBLImpl implements DispositivoBL {
 	 * configuracion de Spring
 	 */
 	TipoDao tipoDao;
+	/**
+	 * Objeto del tipo Prestamo_has_DispositivoDao, este objeto sera inyectado
+	 * desde el archivo de configuracion de Spring
+	 */
+	Prestamo_has_DispositivoDao prestamo_has_dispositivoDao;
 
 	// Metodos Getters & Setters para la inyeccion de dependencias
 	/**
@@ -105,6 +111,28 @@ public class DispositivoBLImpl implements DispositivoBL {
 	 */
 	public void setTipoDao(TipoDao tipoDao) {
 		this.tipoDao = tipoDao;
+	}
+	/**
+	 * Metodo para acceder al objeto del tipo Prestamo_has_DispositivoDao
+	 * 
+	 * @return prestamo_has_dispositivoDao Objeto de la clase
+	 *         Prestamo_has_DispositivoDao
+	 */
+	public Prestamo_has_DispositivoDao getPrestamo_has_dispositivoDao() {
+		return prestamo_has_dispositivoDao;
+	}
+
+	/**
+	 * Metodo para asignar un prestamo_has_dispositivoDao al objeto del tipo
+	 * Prestamo_has_DispositivoDao de esta clase
+	 * 
+	 * @param prestamo_has_dispositivoDao
+	 *            Objeto del tipo Prestamo_has_DispositivoDao con todos los
+	 *            atributos correspondientes a la misma
+	 */
+	public void setPrestamo_has_dispositivoDao(
+			Prestamo_has_DispositivoDao prestamo_has_dispositivoDao) {
+		this.prestamo_has_dispositivoDao = prestamo_has_dispositivoDao;
 	}
 
 	@Override
@@ -295,6 +323,14 @@ public class DispositivoBLImpl implements DispositivoBL {
 			// Recorre la lista de referencias retornada por el metodo
 			// consultarDisponibles entre las fechas especificadas y consulta
 			// cada uno de las referencias para crear la lista de dispositivos
+			for(Dispositivo disp :dispositivoDao.consultarTodos() ){
+				Boolean prestado = prestamo_has_dispositivoDao
+						.dispositivoPrestado(disp);
+				if(!prestado & !disp.isDisponible()){
+					System.out.println(disp.getNombre());
+					dispositivos.add(disp);
+				}
+			}
 			for (String referencia : dispositivoDao.consultarDisponibles(fechaInicio, fechaFin)) {
 				Dispositivo dispositivo = dispositivoDao.consultarUno(referencia);
 				dispositivos.add(dispositivo);
