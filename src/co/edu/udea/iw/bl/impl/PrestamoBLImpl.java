@@ -255,6 +255,8 @@ public class PrestamoBLImpl implements PrestamoBL {
 		}
 		// Asigna el nuevo estado al prestamo con el id especificado
 		prestamo.setEstado(estado);
+		//Asigna el administrador que acepto o rechazo la solicitud
+		prestamo.setAdministrador(admin);
 		// Envia el objeto prestamo al metodo modificar de la clase PrestamoDao
 		prestamoDao.modificar(prestamo);
 	}
