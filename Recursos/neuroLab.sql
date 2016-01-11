@@ -94,7 +94,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `neurociencias`.`Prestamo_has_Dispositivo` ;
 
 CREATE TABLE IF NOT EXISTS `neurociencias`.`Prestamo_has_Dispositivo` (
-  `prestamo` INT NULL COMMENT '',
+  `prestamo` INT NOT NULL COMMENT '',
   `referencia` VARCHAR(30) NOT NULL COMMENT '',
   PRIMARY KEY (`prestamo`, `referencia`)  COMMENT '',
   INDEX `fk_Prestamo_has_Dispositivo_Dispositivo1_idx` (`referencia` ASC)  COMMENT '',
