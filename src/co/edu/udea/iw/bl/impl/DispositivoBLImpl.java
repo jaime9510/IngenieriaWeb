@@ -326,8 +326,7 @@ public class DispositivoBLImpl implements DispositivoBL {
 			for(Dispositivo disp :dispositivoDao.consultarTodos() ){
 				Boolean prestado = prestamo_has_dispositivoDao
 						.dispositivoPrestado(disp);
-				if(!prestado & !disp.isDisponible()){
-					System.out.println(disp.getNombre());
+				if(!prestado & !disp.isDisponible()& !dispositivos.contains(disp)){
 					dispositivos.add(disp);
 				}
 			}

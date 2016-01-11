@@ -253,7 +253,7 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 			// referencia de los dispositivos que esten disponibles para
 			// prestamo en las fechas indicadas
 			Query query = (Query) session.createSQLQuery(
-					"SELECT disp.referencia FROM Dispositivo as disp, Prestamo_has_Dispositivo as pd, Prestamo pres "
+					"SELECT distinct disp.referencia FROM Dispositivo as disp, Prestamo_has_Dispositivo as pd, Prestamo pres "
 							+ "Where disp.referencia = pd.referencia and "
 							+ "pd.prestamo = pres.idPrestamo and pres.fechaInicio not between '" + fechaInicioString
 							+ "'and '" + fechaFinString + "' and pres.fechaFin not between '" + fechaInicioString
@@ -261,6 +261,9 @@ public class DispositivoDaoImpl extends HibernateDaoSupport implements Dispositi
 							+ "'and pres.estado = '0' or pres.estado = '2' and disp.disponible = '1'");
 			//Almacena en dispositivos la lista de resultados del query
 			dispositivos = query.list();
+			for(int i = 0; i < dispositivos.size();i++){
+				System.out.println(dispositivos.get(i));
+			}
 		} catch (HibernateException e) {
 			throw new MyException(e);
 		} finally {
