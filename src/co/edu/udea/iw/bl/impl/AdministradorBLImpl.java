@@ -57,10 +57,11 @@ public class AdministradorBLImpl implements AdministradorBL {
 		// Verifica que los campos ingresados sean validos para las reglas de
 		// negocio
 		if (email == null || "".equals(email)) {
+			throw new MyException("EL Email no es valido");
+		}
+		if (!validar.isEmail(email)) {
 			// Valida que el email tenga la estructura "email@servidor.com"
-			if (!validar.isEmail(email)) {
-				throw new MyException("EL Email no es valido");
-			}
+			throw new MyException("EL Email no es valido");
 		}
 		if (pass == null || "".equals(pass)) {
 			throw new MyException("Ingrese una contrasena");
