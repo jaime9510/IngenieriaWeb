@@ -26,8 +26,6 @@ public interface PrestamoBL {
 	 *            Cedula del usuario que realiza el prestamo.
 	 * @param correoUsuario
 	 *            Correo electronico del usuario que realiza el prestamo.
-	 * @param correoAdmin
-	 *            Correo electronico del administrador que aprueba el prestamo.
 	 * @param fechaInicio
 	 *            Fecha en la que inicia el prestamo.
 	 * @param fechaFin
@@ -43,8 +41,8 @@ public interface PrestamoBL {
 	 *             dispositivos no esta disponible para prestamo en las fechas
 	 *             especificadas.
 	 */
-	public void crear(String nombreUsuario, String cedulaUsuario, String correoUsuario, String correoAdmin,
-			Date fechaInicio, Date fechaFin, String[] dispositivos) throws MyException;
+	public void crear(String nombreUsuario, String cedulaUsuario, String correoUsuario, Date fechaInicio, Date fechaFin,
+			String[] dispositivos) throws MyException;
 
 	/**
 	 * Modifica el estado de un prestamo en especifico.

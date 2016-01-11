@@ -21,7 +21,7 @@
 			<column name="FECHAFIN" length="6" not-null="true" />
 		</property>
 		<many-to-one name="administrador" class="co.edu.udea.iw.dto.Administrador"
-			fetch="join">
+			fetch="join" not-null="false">
 			<column name="ADMINISTRADOR" />
 		</many-to-one>
 		<property name="fechaEntrega" type="java.util.Date">
