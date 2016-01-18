@@ -312,6 +312,9 @@ public class DispositivoBLImpl implements DispositivoBL {
 		// Almacena en el objeto dispositivo el objeto devuelto por el metodo
 		// consultar uno de la clase DispositivoDao
 		dispositivo = dispositivoDao.consultarUno(referencia);
+		if(dispositivo == null){
+			throw new MyException("No existe un dispositivo con esa referencia");
+		}
 		return dispositivo;
 	}
 
