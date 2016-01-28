@@ -11,7 +11,7 @@ DROP SCHEMA IF EXISTS `neurociencias` ;
 
 -- -----------------------------------------------------
 -- Schema neurociencias
--- -----------------------------------------------------
+-- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `neurociencias` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `neurociencias` ;
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `neurociencias`.`Dispositivo` (
   `disponible` TINYINT(1) NOT NULL COMMENT '',
   `descripcion` VARCHAR(200) NULL COMMENT '',
   `Tipo` INT NOT NULL COMMENT '',
-  `foto` VARCHAR(45) NOT NULL COMMENT '',
+  `foto` VARCHAR(120) NOT NULL COMMENT '',
   PRIMARY KEY (`referencia`)  COMMENT '',
   INDEX `fk_Dispositivo_Tipo_idx` (`Tipo` ASC)  COMMENT '',
   CONSTRAINT `fk_Dispositivo_Tipo`

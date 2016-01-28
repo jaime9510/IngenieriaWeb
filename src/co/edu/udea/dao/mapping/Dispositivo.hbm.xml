@@ -22,7 +22,7 @@
             <column name="TIPO" not-null="true"/>
         </many-to-one>
         <property name="foto" type="java.lang.String">
-            <column name="FOTO" length="45" not-null="true"/>
+            <column name="FOTO" length="120" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>
